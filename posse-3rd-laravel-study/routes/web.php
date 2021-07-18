@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Middleware\HelloMiddleware;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,3 +14,13 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/quiz', function () {
+    return view('quizyList');
+});
+
+Route::get("quiz/1", "quizyController@index");
+Route::get("quiz/2", "quizyController@index2");
+
+Route::get('hello', 'HelloController@index');
+Route::post('hello', 'HelloController@post');
