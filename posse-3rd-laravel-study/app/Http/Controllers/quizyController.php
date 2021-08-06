@@ -6,21 +6,27 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Support\Facades\DB;
 
 class quizyController extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-
-    public function index()
+        public function index(Request $request)
     {
-        return view('quizy.quizy1');
-    }
-
-
-    public function index2()
+    if (isset($request->id))
     {
-        return view('quizy.quizy2');
+        $param = ['id' => $request->id];
+        $items = DB::select('select * from questions where id = :id',
+            $param);
+    } else {
+        $items = DB::select('select * from questions');
     }
+    return view('quizy.index', ['items' => $items]);
+    }
+    // public function index2()
+    // {
+    //     return view('quizy.quizy2');
+    // }
 }
 

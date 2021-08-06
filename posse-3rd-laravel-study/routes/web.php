@@ -16,15 +16,16 @@ Route::get('/', function () {
 });
 
 Route::get('/quiz', function () {
-    return view('quizyList');
+    return view('quizy.index');
 });
 
-Route::get("quiz/1", "quizyController@index");
-Route::get("quiz/2", "quizyController@index2");
+Route::get("quiz?id=1", "quizyController@show");
+Route::get("quiz?id=2", "quizyController@show");
 
 Route::get('hello', 'HelloController@index');
 Route::post('hello', 'HelloController@post');
 
+Route::get('person', 'PersonController@index');
 
 Route::get('hello/add', 'HelloController@add');
 Route::post('hello/add', 'HelloController@create');
