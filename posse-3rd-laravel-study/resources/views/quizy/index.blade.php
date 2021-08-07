@@ -24,7 +24,7 @@ copyright 2020 tuyano.
     <title>quizy</title>
 </head>
 <body>
-    <a href="quiz?id=1">東京</a>
-    <a href="quiz?id=2">広島</a>
+    <a href="quiz/1">東京</a>
+    <a href="quiz/2">広島</a>
 </body>
 </html>

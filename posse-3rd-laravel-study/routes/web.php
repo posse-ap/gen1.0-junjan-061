@@ -16,11 +16,11 @@ Route::get('/', function () {
 });
 
 Route::get('/quiz', function () {
-    return view('quizy.index');
+    return view('quizy.shows');
 });
 
-Route::get("quiz?id=1", "quizyController@show");
-Route::get("quiz?id=2", "quizyController@show");
+Route::get("quiz/1", "quizyController@index");
+Route::get("quiz/2", "quizyController@index");
 
 Route::get('hello', 'HelloController@index');
 Route::post('hello', 'HelloController@post');

@@ -22,7 +22,7 @@ class quizyController extends BaseController
     } else {
         $items = DB::select('select * from questions');
     }
-    return view('quizy.index', ['items' => $items]);
+    return view('quizy.shows', ['items' => $items]);
     }
     // public function index2()
     // {

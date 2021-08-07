@@ -17,8 +17,6 @@ class HelloController extends Controller
     {
             $items = DB::table('people')->get();
             return view('hello.index', ['items' => $items]);
-        
-        
     }
 
     public function post(Request $request)
