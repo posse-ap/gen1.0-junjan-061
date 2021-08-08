@@ -472,3 +472,4 @@
 2021-08-07T11:27:49.440226-00:00 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
 2021-08-07T11:27:49.442926-00:00 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
 2021-08-07T11:27:49.509575-00:00 0 [Warning] [MY-011810] [Server] Insecure configuration for --pid-file: Location '/var/run/mysqld' in the path is accessible to all OS users. Consider choosing a different directory.
+2021-08-07T11:27:49.725150-00:00 0 [System] [MY-010931] [Server] /usr/sbin/mysqld: ready for connections. Version: '8.0.25'  socket: '/var/run/mysqld/mysqld.sock'  port: 3306  MySQL Community Server - GPL.

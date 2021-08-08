@@ -15,12 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/quiz', function () {
-    return view('quizy.shows');
-});
+// Route::get('/quiz', function () {
+//     return view('quizy.shows');
+// });
 
-Route::get("quiz/1", "quizyController@index");
-Route::get("quiz/2", "quizyController@index");
+Route::get("quiz", "quizyController@index");
+Route::get("quiz/{id?}", "quizyController@index");
 
 Route::get('hello', 'HelloController@index');
 Route::post('hello', 'HelloController@post');
@@ -37,3 +37,6 @@ Route::get('hello/del', 'HelloController@del');
 Route::post('hello/del', 'HelloController@remove');
 
 Route::get('hello/show', 'HelloController@show');
+
+Route::get('person/find', 'PersonController@find');
+Route::post('person/find', 'PersonController@search');

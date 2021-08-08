@@ -12,7 +12,7 @@ class quizyController extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-        public function index(Request $request)
+        public function index($id='noname')
     {
     if (isset($request->id))
     {
