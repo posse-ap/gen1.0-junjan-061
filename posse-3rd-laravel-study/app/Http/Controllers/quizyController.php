@@ -2,31 +2,29 @@
 
 namespace App\Http\Controllers;
 
+// use App\Question;
+use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\DB;
 
-class quizyController extends BaseController
+class quizyController extends Controller
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-        public function index($id='noname')
+    public function index(Request $request)
     {
-    if (isset($request->id))
+        $items = questions::all();
+        return view('quizy.index', ['items' => $items]);
+    }
+
+
+    public function show(Request $request)
     {
-        $param = ['id' => $request->id];
-        $items = DB::select('select * from questions where id = :id',
-            $param);
-    } else {
-        $items = DB::select('select * from questions');
+        $items = choices::all();
+        return view('quizy.show', ['items' => $items]);
     }
-    return view('quizy.shows', ['items' => $items]);
-    }
-    // public function index2()
-    // {
-    //     return view('quizy.quizy2');
-    // }
 }
 

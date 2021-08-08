@@ -16,26 +16,31 @@ class ChoicesTableSeeder extends Seeder
             'name' => 'たかなわ',
             'valid' => '1'
         ];
+        DB::table('choices')->insert($param);
         $param = [
             'question_id' => '1',
             'name' => 'たかわ',
             'valid' => '0'
         ];
+        DB::table('choices')->insert($param);
         $param = [
             'question_id' => '1',
             'name' => 'こうわ',
             'valid' => '0'
         ];
+        DB::table('choices')->insert($param);
         $param = [
             'question_id' => '2',
             'name' => 'むこうひら',
             'valid' => '0'
         ];
+        DB::table('choices')->insert($param);
         $param = [
             'question_id' => '2',
             'name' => 'むきひら',
             'valid' => '0'
         ];
+        DB::table('choices')->insert($param);
         $param = [
             'question_id' => '2',
             'name' => 'むかいなだ',

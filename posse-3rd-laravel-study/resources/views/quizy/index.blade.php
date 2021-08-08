@@ -1,20 +1,3 @@
-{{-- @extends('layouts.quizy')
-
-@section('title', 'Index')
-
-@section('menubar')
-   @parent
-   インデックスページ
-@endsection
-
-@section('content')
-    
-@endsection
-
-@section('footer')
-copyright 2020 tuyano.
-@endsection --}}
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -24,7 +7,19 @@ copyright 2020 tuyano.
     <title>quizy</title>
 </head>
 <body>
-    <a href="quiz/1">東京</a>
-    <a href="quiz/2">広島</a>
+    @foreach ($items as $item)
+    <a href="quiz/{id?}">{{$item->getData()}}</a><br>
+    @endforeach
+
+
+    {{-- @foreach ($items as $item)
+    <tr>
+        {{-- <td>{{$item->getData()}}</td> --}}
+        {{-- <td>@if ($item->choice != null)
+                {{$item->choice->getData()}}
+            @endif
+        </td>
+    </tr> --}}
+    {{-- @endforeach --}}
 </body>
 </html>

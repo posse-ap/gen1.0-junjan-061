@@ -19,8 +19,8 @@ Route::get('/', function () {
 //     return view('quizy.shows');
 // });
 
-Route::get("quiz", "quizyController@index");
-Route::get("quiz/{id?}", "quizyController@index");
+// Route::get("quiz", "QuestionController@index");
+Route::get("quiz", "ChoicesController@index");
 
 Route::get('hello', 'HelloController@index');
 Route::post('hello', 'HelloController@post');
