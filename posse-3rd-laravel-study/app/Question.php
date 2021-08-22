@@ -13,6 +13,6 @@ class Question extends Model
 
     public function choices()
     {
-        return $this->hasOne(App\Choice);
+        return $this->hasMany(Choice::class);
     }
 }

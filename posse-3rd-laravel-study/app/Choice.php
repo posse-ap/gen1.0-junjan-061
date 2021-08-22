@@ -14,13 +14,13 @@ class Choice extends Model
         'valid' => 'required'
     );
 
-    public function choice()
+    public function question()
     {
-        return $this->hasOne('App\Choice');
+        return $this->belongsTo(Question::class);
     }
 
     public function getData()
     {
-        return $this->id . ': ' . $this->name . ': ' . $this->valid;
+        return $this->id . ': ' . $this->name . ': ' . $this->valid . ': ' . $this->question_id;
     }
 }

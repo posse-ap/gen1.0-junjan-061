@@ -27,4 +27,3 @@ class quizyController extends Controller
         return view('quizy.show', ['items' => $items]);
     }
 }
-

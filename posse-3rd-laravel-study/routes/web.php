@@ -19,8 +19,8 @@ Route::get('/', function () {
 //     return view('quizy.shows');
 // });
 
-// Route::get("quiz", "QuestionController@index");
-Route::get("quiz", "ChoicesController@index");
+Route::get("quiz", "QuestionController@index");
+Route::get("quiz/{question_id?}", "ChoicesController@index");
 
 Route::get('hello', 'HelloController@index');
 Route::post('hello', 'HelloController@post');
@@ -40,3 +40,7 @@ Route::get('hello/show', 'HelloController@show');
 
 Route::get('person/find', 'PersonController@find');
 Route::post('person/find', 'PersonController@search');
+
+Route::get('scss', function () {
+    return view('for-scss');
+});
