@@ -21,17 +21,18 @@
 @endsection
 @endsection --}}
 
-@foreach ($items as $item)
+@foreach ($items as $quiz)
 <tr>
-    <td>{{$item->getData()}}</td>
-    <td>
-    @if ($item->choices != null)
+    @foreach ($quiz->show as $obj)
+        <tr><td>{{$obj->getData_2()}}</td></tr>
+    @endforeach
+    {{-- @if ($item->choices != null)
         <table width="100%">
         @foreach ($item->choices as $obj)
-            <tr><td>{{$obj->getData()}}</td></tr>
+            <tr><td>{{$obj->getData_2()}}</td></tr>
         @endforeach
         </table>
-    @endif
-    </td>
+    @endif --}}
+    {{-- <tr><td>{{$item->getData_2()}}</td></tr> --}}
 </tr>
 @endforeach

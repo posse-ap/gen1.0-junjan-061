@@ -20,7 +20,7 @@ Route::get('/', function () {
 // });
 
 Route::get("quiz", "QuestionController@index");
-Route::get("quiz/{question_id?}", "ChoicesController@index");
+Route::get("quiz/{id}", "quizyController@show");
 
 Route::get('hello', 'HelloController@index');
 Route::post('hello', 'HelloController@post');

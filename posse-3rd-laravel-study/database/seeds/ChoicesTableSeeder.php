@@ -30,6 +30,24 @@ class ChoicesTableSeeder extends Seeder
         ];
         DB::table('choices')->insert($param);
         $param = [
+            'question_id' => '1',
+            'name' => 'かめと',
+            'valid' => '0'
+        ];
+        DB::table('choices')->insert($param);
+        $param = [
+            'question_id' => '1',
+            'name' => 'かめど',
+            'valid' => '0'
+        ];
+        DB::table('choices')->insert($param);
+        $param = [
+            'question_id' => '1',
+            'name' => 'かめいど',
+            'valid' => '1'
+        ];
+        DB::table('choices')->insert($param);
+        $param = [
             'question_id' => '2',
             'name' => 'むこうひら',
             'valid' => '0'
@@ -46,6 +64,25 @@ class ChoicesTableSeeder extends Seeder
             'name' => 'むかいなだ',
             'valid' => '1'
         ];
+        DB::table('choices')->insert($param);
+        $param = [
+            'question_id' => '2',
+            'name' => 'みつぎ',
+            'valid' => '1'
+        ];
+        DB::table('choices')->insert($param);
+        $param = [
+            'question_id' => '2',
+            'name' => 'みよし',
+            'valid' => '0'
+        ];
+        DB::table('choices')->insert($param);
+        $param = [
+            'question_id' => '2',
+            'name' => 'おしらべ',
+            'valid' => '0'
+        ];
+
         DB::table('choices')->insert($param);
     }
 }

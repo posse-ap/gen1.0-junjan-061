@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-// use App\Question;
+use App\Question;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -21,9 +21,20 @@ class quizyController extends Controller
     }
 
 
-    public function show(Request $request)
+    public function show($id)
     {
-        $items = choices::all();
-        return view('quizy.show', ['items' => $items]);
+        $item = new Question;
+        $items = $item->with('choices')->find($id);
+        // $items->get();
+        // $items = Question::find($id)->choices;
+        // dd($items);
+        return view('quizy.show', compact('items'));
     }
+
+    public function sort(Request $request){
+        $params = ['id' => $request->id];
+        $items = DB::select( $params);
+        return view('quizy.show',['items' => $items]);
+    }
+
 }

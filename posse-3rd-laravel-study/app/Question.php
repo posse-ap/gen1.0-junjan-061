@@ -10,6 +10,10 @@ class Question extends Model
     {
         return $this->id . ':' . $this->name ;
     }
+    public function getData_2()
+    {
+        return $this->id . ':' . $this->name . ' (' . $this->choices['name'] . ')' . ' (' . $this->choices['valid'] . ')' ;
+    }
 
     public function choices()
     {
