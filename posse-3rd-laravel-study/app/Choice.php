@@ -23,4 +23,10 @@ class Choice extends Model
     {
         return $this->id . ': ' . $this->name . ': ' . $this->valid . ': ' . $this->question_id;
     }
+
+    public function getData_2()
+    {
+        return $this->id . ':' . $this->name . ' (' . $this->choices['name'] . ')' . ' (' . $this->choices['valid'] . ')' ;
+    }
+
 }

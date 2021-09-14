@@ -21,18 +21,33 @@
 @endsection
 @endsection --}}
 
-@foreach ($items as $quiz)
+{{-- @foreach ($items->questions as $item)
 <tr>
-    @foreach ($quiz->show as $obj)
-        <tr><td>{{$obj->getData_2()}}</td></tr>
+    @foreach ($item as $quiz)
+        <tr><td>{{$quiz->getData_2()}}</td></tr>
     @endforeach
-    {{-- @if ($item->choices != null)
+    @if ($item->choices != null)
         <table width="100%">
         @foreach ($item->choices as $obj)
             <tr><td>{{$obj->getData_2()}}</td></tr>
         @endforeach
         </table>
-    @endif --}}
-    {{-- <tr><td>{{$item->getData_2()}}</td></tr> --}}
+    @endif 
+    <tr><td>{{$item->getData_2()}}</td></tr>
 </tr>
-@endforeach
+@endforeach --}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    @foreach ($items as $quiz)
+    <p>{{$quiz->getData_2()}}</p>
+    @endforeach
+
+</body>
+</html>

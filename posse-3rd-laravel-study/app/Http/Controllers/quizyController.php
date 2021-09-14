@@ -31,10 +31,10 @@ class quizyController extends Controller
         return view('quizy.show', compact('items'));
     }
 
-    public function sort(Request $request){
-        $params = ['id' => $request->id];
-        $items = DB::select( $params);
-        return view('quizy.show',['items' => $items]);
-    }
+    // public function sort(Request $request){
+    //     $params = ['id' => $request->id];
+    //     $items = DB::select( $params);
+    //     return view('quizy.show',['items' => $items]);
+    // }
 
 }
