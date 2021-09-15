@@ -27,7 +27,8 @@ class quizyController extends Controller
         $items = $item->with('choices')->find($id);
         // $items->get();
         // $items = Question::find($id)->choices;
-        // dd($items);
+        // dd($items['choices']);
+        // echo $items;
         return view('quizy.show', compact('items'));
     }
 

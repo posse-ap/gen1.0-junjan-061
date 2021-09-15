@@ -45,9 +45,23 @@
     <title>Document</title>
 </head>
 <body>
-    @foreach ($items as $quiz)
-    <p>{{$quiz->getData_2()}}</p>
+    <p>{{ $items['name'] }}</p>
+    @foreach ($items['choices'] as $choice)
+
+    <p>{{$choice['name']}}</p>
+    {{-- @if ($quiz->choices != null)
+
+        
+    @endif --}}
+        {{-- {{dd($obj)}} --}}
+    {{-- @foreach ($quiz as $obj) --}}
+    {{-- <p>{{$obj->getData_2()}}</p> --}}
+    {{-- <p>{{$obj['name']}}</p> --}}
     @endforeach
+    {{-- {{var_dump($quiz)}} --}}
+    {{-- @endforeach --}}
+
+
 
 </body>
 </html>
