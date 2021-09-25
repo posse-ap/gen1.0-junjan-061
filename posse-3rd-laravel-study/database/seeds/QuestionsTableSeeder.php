@@ -1,5 +1,7 @@
 <?php
+// namespace Database\Seeders;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
 
 class QuestionsTableSeeder extends Seeder
@@ -21,4 +23,5 @@ class QuestionsTableSeeder extends Seeder
         ];
         DB::table('questions')->insert($param);
     }
+
 }

@@ -1,7 +1,9 @@
 {{-- @extends('layouts.quizy')
 
-@section('title','index') --}}
+@section('title',{{ $items['name']}})
+@section('title','タイトル')
 
+@endsection --}}
 {{-- @section('quiz')
     @section('content')
     @foreach ($items as $item)
@@ -42,13 +44,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>@yield('title')</title>
 </head>
 <body>
     <p>{{ $items['name'] }}</p>
     @foreach ($items['choices'] as $choice)
 
     <p>{{$choice['name']}}</p>
+
+    @endforeach
+
     {{-- @if ($quiz->choices != null)
 
         
@@ -57,7 +62,6 @@
     {{-- @foreach ($quiz as $obj) --}}
     {{-- <p>{{$obj->getData_2()}}</p> --}}
     {{-- <p>{{$obj['name']}}</p> --}}
-    @endforeach
     {{-- {{var_dump($quiz)}} --}}
     {{-- @endforeach --}}
 

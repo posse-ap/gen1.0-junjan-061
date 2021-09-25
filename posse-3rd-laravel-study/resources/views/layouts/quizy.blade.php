@@ -3,15 +3,16 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>@yield('title')</title>
+    <title>クイジー</title>
     <link
         href="https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/html5resetcss/html5reset-1.6.css">
-        <link href="/css/quizy.css" rel="stylesheet">
+        <link href="../../public/css/quizy.css" rel="stylesheet">
 </head>
 
-<body>
+{{-- @yield('content') --}}
+{{-- <body>
+    <h1>@yield('title')</h1>
     <div class="main">
-        <!-- ここから1問目 -->
         @section('quiz')
             <div class="quiz">
                 <h1>この地名はなんて読む？</h1>
@@ -27,8 +28,7 @@
                 </ul>
             </div>
         @endsection
-        <!-- ここから2問目 -->
-        
+    
         <div class="quiz">
             <h1>2. この地名はなんて読む？</h1>
             <img src="">
@@ -43,7 +43,6 @@
             </ul>
         </div>
 
-        <!-- ここから3問目 -->
         <div class="quiz">
             <h1>3. この地名はなんて読む？</h1>
             <img src="">
@@ -58,7 +57,7 @@
             </ul>
         </div>
 
-        <!-- ここから4問目 -->
+    
         <div class="quiz">
             <h1>4. この地名はなんて読む？</h1>
             <img src="">
@@ -74,7 +73,7 @@
         </div>
 
         <script src="/js/quizy.js"></script>
-    </div>
+    </div> --}}
 </body>
 
 </html>

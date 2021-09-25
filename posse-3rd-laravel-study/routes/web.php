@@ -41,6 +41,15 @@ Route::get('hello/show', 'HelloController@show');
 Route::get('person/find', 'PersonController@find');
 Route::post('person/find', 'PersonController@search');
 
+Route::resource('rest', 'RestappController');
+Route::get('hello/rest', 'HelloController@rest');
+
+Route::get('hello/session', 'HelloController@ses_get');
+Route::post('hello/session', 'HelloController@ses_put');
+
 Route::get('scss', function () {
     return view('for-scss');
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

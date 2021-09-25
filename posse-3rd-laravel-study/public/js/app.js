@@ -104,8 +104,8 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-!(function webpackMissingModule() { var e = new Error("Cannot find module 'C:\\Users\\junjan\\workspace\\laravel\\gen1.0-junjan-061\\posse-3rd-laravel-study\\resources\\js\\app.js'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-module.exports = __webpack_require__(/*! C:\Users\junjan\workspace\laravel\gen1.0-junjan-061\posse-3rd-laravel-study\resources\sass\app.scss */"./resources/sass/app.scss");
+!(function webpackMissingModule() { var e = new Error("Cannot find module '/work/backend/resources/js/app.js'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+module.exports = __webpack_require__(/*! /work/backend/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
