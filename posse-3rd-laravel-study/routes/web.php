@@ -22,6 +22,10 @@ Route::get('/', function () {
 Route::get("quiz", "QuestionController@index");
 Route::get("quiz/{id}", "quizyController@show");
 
+Route::get("admin", "AdminController@index");
+// Route::get("admin", "QuestionController@index");
+// Route::get("admin/quiz/{id}", "quizyController@show");
+
 Route::get('hello', 'HelloController@index');
 Route::post('hello', 'HelloController@post');
 
@@ -41,7 +45,7 @@ Route::get('hello/show', 'HelloController@show');
 Route::get('person/find', 'PersonController@find');
 Route::post('person/find', 'PersonController@search');
 
-Route::resource('rest', 'RestappController');
+Route::resource('admin', 'RestappController');
 Route::get('hello/rest', 'HelloController@rest');
 
 Route::get('hello/session', 'HelloController@ses_get');
@@ -50,6 +54,8 @@ Route::post('hello/session', 'HelloController@ses_put');
 Route::get('scss', function () {
     return view('for-scss');
 });
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

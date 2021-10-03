@@ -9,6 +9,7 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class quizyController extends Controller
 {
@@ -32,6 +33,17 @@ class quizyController extends Controller
         return view('quizy.show', compact('items'));
     }
 
+
+    public function menu()
+    {
+        // ログインしていたら、test/menuを表示
+        if (Auth::check()) {
+            return view('/quiz');
+        } else {
+            // ログインしていなかったら、Login画面を表示
+            return view('auth/login');
+        }
+    }
     // public function sort(Request $request){
     //     $params = ['id' => $request->id];
     //     $items = DB::select( $params);

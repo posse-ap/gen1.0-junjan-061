@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Restdata;
+use App\Question;
 use Illuminate\Http\Request;
 
 class RestappController extends Controller
@@ -14,8 +14,10 @@ class RestappController extends Controller
      */
     public function index()
     {
-        $items = Restdata::all();
-        return $items->toArray();
+        // $items = Restdata::all();
+        // return $items->toArray();
+        $items = questions::all();
+        return view('quizy.admin', ['items' => $items]);
     }
 
     /**
@@ -51,8 +53,13 @@ class RestappController extends Controller
      */
     public function show($id)
     {
-        $items = Restdata::find($id);
-        return $items->toArray();
+        $item = new Question;
+        $items = $item->with('choices')->find($id);
+        // $items->get();
+        // $items = Question::find($id)->choices;
+        // dd($items['choices']);
+        // echo $items;
+        return view('quizy.update', compact('items'));
     }
 
     /**
