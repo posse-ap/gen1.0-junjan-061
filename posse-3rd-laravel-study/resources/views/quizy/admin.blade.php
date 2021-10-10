@@ -11,12 +11,25 @@
 
 
     <h2>問題タイトル一覧</h2>
-    {{-- @foreach ($items as $item)
-    <a href="admin/quiz/{{ $item->id }}">{{$item->getData()}}</a><br>
-    @endforeach --}}
-    @include('quiz')
-    <h2></h2>
 
+    @foreach ($items as $item)
+    <a href="admin/{{ $item->id }}/edit">{{$item->getData()}}</a><br>
+    @endforeach
+
+    <?php echo ($item); ?>
+
+    <p> 問題タイトル追加 </p>
+    <table>
+        <form action="/admin" method="post">
+        @csrf
+            <tr><th>問題タイトル: </th><td><input type="text" name="name"
+            value="{{old('name')}}"></td></tr>
+            {{-- <tr><th>url: </th><td><input type="text" name="url"
+            value="{{old('')}}"></td></tr> --}}
+            <tr><th></th><td><input type="submit" value="send"></td></tr>
+    </form>
+    {{-- <a href="admin/edit/" >問題タイトル編集</a> --}}
+    </table>
 
 
     

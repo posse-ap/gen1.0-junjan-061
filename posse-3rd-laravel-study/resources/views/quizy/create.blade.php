@@ -1,7 +1,7 @@
 <table>
-    <form action="/admin" method="post">
+    <form action="/admin/" method="post">
     @csrf
-        <tr><th>message: </th><td><input type="text" name="message"
+        <tr><th>問題タイトル: </th><td><input type="text" name="name"
         value="{{old('name')}}"></td></tr>
         {{-- <tr><th>url: </th><td><input type="text" name="url"
         value="{{old('')}}"></td></tr> --}}

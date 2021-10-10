@@ -22,9 +22,9 @@ Route::get('/', function () {
 Route::get("quiz", "QuestionController@index");
 Route::get("quiz/{id}", "quizyController@show");
 
-Route::get("admin", "AdminController@index");
+Route::resource("admin", "AdminController");
 // Route::get("admin", "QuestionController@index");
-// Route::get("admin/quiz/{id}", "quizyController@show");
+// Route::get("admin/rest", "quizyController@create");
 
 Route::get('hello', 'HelloController@index');
 Route::post('hello', 'HelloController@post');
@@ -45,7 +45,7 @@ Route::get('hello/show', 'HelloController@show');
 Route::get('person/find', 'PersonController@find');
 Route::post('person/find', 'PersonController@search');
 
-Route::resource('admin', 'RestappController');
+// Route::resource('admin', 'RestappController');
 Route::get('hello/rest', 'HelloController@rest');
 
 Route::get('hello/session', 'HelloController@ses_get');

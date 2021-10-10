@@ -33,6 +33,10 @@ class quizyController extends Controller
         return view('quizy.show', compact('items'));
     }
 
+    public function create(Request $request)
+    {
+        return view('quizy.rest');
+    }
 
     public function menu()
     {

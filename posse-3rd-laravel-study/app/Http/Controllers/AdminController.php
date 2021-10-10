@@ -2,8 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Choice;
 use App\Question;
 use Illuminate\Http\Request;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Foundation\Bus\DispatchesJobs;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
@@ -14,7 +21,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $items = questions::all();
+        $items = question::all();
         return view('quizy.admin', ['items' => $items]);
     }
 
@@ -25,7 +32,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-        //
+        return view('quizy.admin');
     }
 
     /**
@@ -36,7 +43,12 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $question = new Question;
+        $form = $request->all();
+        unset($form['_token']);
+        $question->timestamps = false;  
+        $question->fill($form)->save();
+        return redirect('/admin');
     }
 
     /**
@@ -63,9 +75,11 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request, $id)
     {
-        //
+        $question = Question::find($request->$id);
+        // return view('quizy.edit',['form' => $question]);
+        return view('quizy.edit');
     }
 
     /**
@@ -77,7 +91,10 @@ class AdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $question = Question::find($id);
+        $question->name = $request->name;
+        $question->save();
+        return redirect("/admin");
     }
 
     /**
