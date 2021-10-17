@@ -7,7 +7,6 @@
     <title>quizy</title>
 </head>
 
-
 <body>
 
     

@@ -10,13 +10,12 @@
     <h1>管理画面</h1>
 
 
-    <h2>問題タイトル一覧</h2>
+    <h2>問題タイトル一覧(クリックして編集してね💛)</h2>
 
-    @foreach ($items as $item)
-    <a href="admin/{{ $item->id }}/edit">{{$item->getData()}}</a><br>
+
+    @foreach ($questions as $question)
+    <a href="admin/{{ $question['id'] }}/edit">{{$question->getData()}}</a><br>
     @endforeach
-
-    <?php echo ($item); ?>
 
     <p> 問題タイトル追加 </p>
     <table>

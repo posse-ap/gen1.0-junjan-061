@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,17 +8,30 @@
 </head>
 <body>
     <h1>データ更新</h1>
-    <form action="/admin/{{}}" method="post">
-        <table>
+    {{-- <form action="/admin/{{$question->id}}" method="POST"> --}}
+    <form action="/admin/{{$question->id}}" method="post">
             @csrf
-            <input type="hidden" name="id" value="{{$id}}">
-            <tr><th>name: </th><td><input type="text" name="name" 
-                value="{{$form->name}}"></td></tr>
-            <tr><th></th><td><input type="submit" 
-                value="send"></td></tr>
-        </table>
+            @method('PUT')
+            <input type="hidden" name="id" value="{{$question->id}}">
+            {{-- <input type="hidden" name="_method" value="put"> --}}
+            name:<input type="text" name="name" 
+                value="ガチで東京の人しか解けない！更新してやったわ">
+                <input type="submit" value="send">
         </form>
+
+        <h1>データ削除</h1>
+        <form action="/admin/{{$question->id}}" method="post">
+            @csrf
+            @method('DELETE')
+            <input type="hidden" name="id" value="{{$question->id}}">
+            {{-- <input type="hidden" name="_method" value="put"> --}}
+                <input type="submit" value="send">
+        </form>
+
+        {{-- <p>{{ $choices['name'] }}</p> --}}
+        @foreach ($choices['choices'] as $choice)
+        <p>{{$choice['name']}}</p>
+        @endforeach
+
 </body>
 </html>
-
-

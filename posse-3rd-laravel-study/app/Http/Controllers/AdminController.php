@@ -21,8 +21,9 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $items = question::all();
-        return view('quizy.admin', ['items' => $items]);
+        $questions = question::all();
+        // dd($questions);
+        return view('quizy.admin', compact('questions'));
     }
 
     /**
@@ -60,13 +61,15 @@ class AdminController extends Controller
     public function show($id)
     {
         
-        $item = new Question;
-        $items = $item->with('choices')->find($id);
+        $question = new Question;
+        $questions = $question->with('choices')->find($id);
+
+        // dd($questions);
         // $items->get();
         // $items = Question::find($id)->choices;
         // dd($items['choices']);
         // echo $items;
-        return view('quizy.show', compact('items'));
+        return view('quizy.show', compact('questions'));
     }
 
     /**
@@ -77,9 +80,14 @@ class AdminController extends Controller
      */
     public function edit(Request $request, $id)
     {
-        $question = Question::find($request->$id);
+        $question = Question::find($id);
         // return view('quizy.edit',['form' => $question]);
-        return view('quizy.edit');
+
+        $choice = new Question;
+        $choices = $choice->with('choices')->find($id);
+
+        // dd($question);
+        return view('quizy.edit',compact('question','choices'));
     }
 
     /**
@@ -93,6 +101,7 @@ class AdminController extends Controller
     {
         $question = Question::find($id);
         $question->name = $request->name;
+        $question->timestamps = false;  
         $question->save();
         return redirect("/admin");
     }
@@ -105,6 +114,7 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $question = Question::find($id)->delete();
+        return redirect('/admin');
     }
 }
