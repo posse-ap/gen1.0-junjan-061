@@ -20,11 +20,11 @@ class Question extends Model
     }
     public function getData_2()
     {
-        return $this->id . ':' . $this->name . ' (' . $this->choices['name'] . ')' . ' (' . $this->choices['valid'] . ')' ;
+        return $this->id . ':' . $this->name . ' (' . $this->themes['name'] . ')';
     }
 
-    public function choices()
+    public function themes()
     {
-        return $this->hasMany(Choice::class);
+        return $this->hasMany(Theme::class);
     }
 }

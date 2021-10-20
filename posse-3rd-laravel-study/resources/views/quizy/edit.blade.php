@@ -30,6 +30,7 @@
 
         {{-- <p>{{ $choices['name'] }}</p> --}}
         @foreach ($choices['choices'] as $choice)
+        {{-- <p>{{$choice['name']}}</p> --}}
         <p>{{$choice['name']}}</p>
         @endforeach
 
