@@ -9,7 +9,6 @@
 
 <body>
 
-    
     @foreach ($items as $item)
     <a href="quiz/{{ $item->id }}">{{$item->getData()}}</a><br>
     @endforeach

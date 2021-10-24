@@ -26,6 +26,13 @@ class AdminController extends Controller
         return view('quizy.admin', compact('questions'));
     }
 
+    public function index_title()
+    {
+        $themes = question::all();
+        // dd($questions);
+        return view('quizy.admin', compact('questions'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -61,6 +68,9 @@ class AdminController extends Controller
     public function show($id)
     {
         
+        $theme = new Theme;
+        $themes = $theme->with('themes')->find($id);
+        
         $question = new Question;
         $questions = $question->with('choices')->find($id);
 
@@ -69,7 +79,7 @@ class AdminController extends Controller
         // $items = Question::find($id)->choices;
         // dd($items['choices']);
         // echo $items;
-        return view('quizy.show', compact('questions'));
+        return view('quizy.show', compact('themes','questions'));
     }
 
     /**
@@ -83,11 +93,14 @@ class AdminController extends Controller
         $question = Question::find($id);
         // return view('quizy.edit',['form' => $question]);
 
+        $theme = new Theme;
+        $themes = $theme->with('themes')->find($id);
+
         $choice = new Question;
         $choices = $choice->with('choices')->find($id);
 
         // dd($question);
-        return view('quizy.edit',compact('question','choices'));
+        return view('quizy.edit',compact('question','choices','themes'));
     }
 
     /**
@@ -103,6 +116,11 @@ class AdminController extends Controller
         $question->name = $request->name;
         $question->timestamps = false;  
         $question->save();
+
+        $theme = Theme::find($id);
+        $theme->name = $request->name;
+        $theme->timestamps = false;  
+        $theme->save();
         return redirect("/admin");
     }
 

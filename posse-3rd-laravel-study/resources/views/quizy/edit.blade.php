@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>データ更新</h1>
+    <h1>タイトルデータ更新</h1>
     {{-- <form action="/admin/{{$question->id}}" method="POST"> --}}
     <form action="/admin/{{$question->id}}" method="post">
             @csrf
@@ -15,7 +15,7 @@
             <input type="hidden" name="id" value="{{$question->id}}">
             {{-- <input type="hidden" name="_method" value="put"> --}}
             name:<input type="text" name="name" 
-                value="ガチで東京の人しか解けない！更新してやったわ">
+                value="ガチで東京の人しか解けない！更新">
                 <input type="submit" value="send">
         </form>
 
@@ -29,9 +29,9 @@
         </form>
 
         {{-- <p>{{ $choices['name'] }}</p> --}}
-        @foreach ($choices['choices'] as $choice)
+        @foreach ($themes['themes'] as $theme)
         {{-- <p>{{$choice['name']}}</p> --}}
-        <p>{{$choice['name']}}</p>
+        <p>{{$theme['name']}}</p>
         @endforeach
 
 </body>

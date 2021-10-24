@@ -10,14 +10,18 @@
     <h1>管理画面</h1>
 
 
-    <h2>問題タイトル一覧(クリックして編集してね💛)</h2>
-
+    <h2>問題タイトル一覧(設問のメンテナンス💛)</h2>
 
     @foreach ($questions as $question)
     <a href="admin/{{ $question['id'] }}/edit">{{$question->getData()}}</a><br>
     @endforeach
 
-    <p> 問題タイトル追加 </p>
+    <h2>問題タイトル一覧(タイトルのメンテナンス💛)</h2>
+    @foreach ($questions as $question)
+    <a href="admin/theme">{{$question->getData()}}</a><br>
+    @endforeach
+
+    <p> 問題タイトル追加❤</p>
     <table>
         <form action="/admin" method="post">
         @csrf
