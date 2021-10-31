@@ -8,10 +8,11 @@
 </head>
 <body>
 
-    <p>{{ $items['name'] }}</p>
-    @foreach ($items['choices'] as $choice)
+    {{-- <p>{{ $themes['name'] }}</p> --}}
+    {{-- <p>{{$choice['name']}}</p> --}}
+    @foreach ($themes as $theme)
 
-    <p>{{$choice['name']}}</p>
+    <p>{{$theme['name']}}</p>
 
     @endforeach
 

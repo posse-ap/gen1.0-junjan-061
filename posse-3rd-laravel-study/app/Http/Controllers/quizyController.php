@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Question;
+use App\Theme;
+use App\Choice;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -17,20 +19,24 @@ class quizyController extends Controller
 
     public function index(Request $request)
     {
-        $items = questions::all();
-        return view('quizy.index', ['items' => $items]);
+        $questions = questions::all();
+        dd($questions);
+        return view('quizy.index', compact('questions'));
     }
-
 
     public function show($id)
     {
-        $item = new Question;
-        $items = $item->with('choices')->find($id);
+        $theme = new Theme;
+        // $items = $item->with('choices')->find($id);
+        // $themes = $theme->with('themes')->find($id);
+        $themes = Theme::where('question_id' $id)->get();
+        dd($themes);
+        $choices = Choice::get();
         // $items->get();
         // $items = Question::find($id)->choices;
         // dd($items['choices']);
         // echo $items;
-        return view('quizy.show', compact('items'));
+        return view('quizy.show', compact('themes','choices'));
     }
 
     public function create(Request $request)

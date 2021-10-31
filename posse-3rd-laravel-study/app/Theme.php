@@ -13,19 +13,19 @@ class Theme extends Model
         'name' => 'required',
     );
 
-    public function question()
+    public function questions()
     {
-        return $this->belongsTo(Question::class);
+        return $this->belongsTo('App\Question');
     }
 
     public function choices()
     {
-        return $this->hasMany(Choice::class);
+        return $this->hasMany('App\Choice');
     }
 
-    public function getData()
-    {
-        return $this->id . ': ' . $this->name . ': ' . $this->question_id;
-    }
+    // public function getData()
+    // {
+    //     return $this->id . ': ' . $this->name . ': ' . $this->question_id;
+    // }
 
 }

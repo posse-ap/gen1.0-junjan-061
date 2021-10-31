@@ -9,8 +9,8 @@
 
 <body>
 
-    @foreach ($items as $item)
-    <a href="quiz/{{ $item->id }}">{{$item->getData()}}</a><br>
+    @foreach ($questions as $question)
+    <a href="quiz/{{ $question->id }}">{{$question->getData()}}</a><br>
     @endforeach
 
 </body>

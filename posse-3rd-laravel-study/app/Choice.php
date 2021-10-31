@@ -14,19 +14,19 @@ class Choice extends Model
         'valid' => 'required'
     );
 
-    public function question()
+    public function themes()
     {
-        return $this->belongsTo(Theme::class);
+        return $this->belongsTo('App\Choice');
     }
 
-    public function getData()
-    {
-        return $this->id . ': ' . $this->name . ': ' . $this->valid . ': ' . $this->theme_id;
-    }
+    // public function getData()
+    // {
+    //     return $this->id . ': ' . $this->name . ': ' . $this->valid . ': ' . $this->theme_id;
+    // }
 
-    public function getData_2()
-    {
-        return $this->id . ':' . $this->name . ' (' . $this->choices['name'] . ')' . ' (' . $this->choices['valid'] . ')' ;
-    }
+    // public function getData_2()
+    // {
+    //     return $this->id . ':' . $this->name . ' (' . $this->choices['name'] . ')' . ' (' . $this->choices['valid'] . ')' ;
+    // }
 
 }

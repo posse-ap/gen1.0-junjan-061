@@ -8,12 +8,10 @@
 </head>
 <body>
     <h1>タイトルデータ更新</h1>
-    {{-- <form action="/admin/{{$question->id}}" method="POST"> --}}
     <form action="/admin/{{$question->id}}" method="post">
             @csrf
             @method('PUT')
             <input type="hidden" name="id" value="{{$question->id}}">
-            {{-- <input type="hidden" name="_method" value="put"> --}}
             name:<input type="text" name="name" 
                 value="ガチで東京の人しか解けない！更新">
                 <input type="submit" value="send">

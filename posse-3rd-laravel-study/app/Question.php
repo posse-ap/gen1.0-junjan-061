@@ -25,6 +25,11 @@ class Question extends Model
 
     public function themes()
     {
-        return $this->hasMany(Theme::class);
+        return $this->hasMany('App\Theme');
     }
+
+    // public function themes()
+    // {
+    //     return $this->hasMany(Theme::class);
+    // }
 }

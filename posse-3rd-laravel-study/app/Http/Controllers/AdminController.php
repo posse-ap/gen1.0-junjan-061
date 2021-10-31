@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Choice;
 use App\Question;
+use App\Theme;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -21,17 +23,21 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $questions = question::all();
+        // $questions = DB::table('questions')->pluck('id','name');
+        $questions = questions::all();
+
         // dd($questions);
-        return view('quizy.admin', compact('questions'));
+        $themes = themes::all();
+        // dd($questions);
+        return view('quizy.admin', compact('questions','themes'));
     }
 
-    public function index_title()
-    {
-        $themes = question::all();
-        // dd($questions);
-        return view('quizy.admin', compact('questions'));
-    }
+    // public function index_title()
+    // {
+    //     $themes = question::all();
+    //     // dd($questions);
+    //     return view('quizy.admin', compact('questions'));
+    // }
 
     /**
      * Show the form for creating a new resource.
