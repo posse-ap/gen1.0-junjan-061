@@ -15,14 +15,21 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('/quiz', function () {
-//     return view('quizy.shows');
-// });
 
 Route::get("quiz", "QuestionController@index");
+
+Route::get("admin", "CrazyController@index")->name('admin');
+
+Route::get("admin/{question_id}", "CrazyController@show")->name('admin.show');
+
+Route::get("admin/{questions_id}/edit/{theme_id}", "CrazyController@edit")->name('admin.edit');
+
+Route::post("admin/{questions_id}/edit/{theme_id}/update", "CrazyController@update")->name('admin.update');
+
+Route::post("admin/delete", "CrazyController@destroy")->name('admin.delete');
+
 Route::get("quiz/{id}", "quizyController@show");
 
-Route::resource("admin", "AdminController");
 // Route::get("admin", "QuestionController@index");
 // Route::get("admin/rest", "quizyController@create");
 
@@ -45,7 +52,6 @@ Route::get('hello/show', 'HelloController@show');
 Route::get('person/find', 'PersonController@find');
 Route::post('person/find', 'PersonController@search');
 
-// Route::resource('admin', 'RestappController');
 Route::get('hello/rest', 'HelloController@rest');
 
 Route::get('hello/session', 'HelloController@ses_get');

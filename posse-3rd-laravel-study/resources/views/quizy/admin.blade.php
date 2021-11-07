@@ -9,16 +9,16 @@
 <body>
     <h1>管理画面</h1>
 
-
-    <h2>問題タイトル一覧(タイトルのメンテナンス💛)</h2>
+    <h2>問題タイトル一覧💛</h2>
     @foreach ($questions as $question)
-    <a href="admin/{{ $question['id'] }}/edit">{{$question->name}}</a><br>
+    {{-- <a href="admin/{{ $question['id'] }}/edit">{{$question->name}}</a><br> --}}
+    <a href="{{ route( 'admin.show', [ 'question_id'=>$question['id'] ] ) }}">{{$question->id}}{{$question->name}}</a><br>
     @endforeach
 
-    <h2>問題タイトル一覧(設問のメンテナンス💛)</h2>
-    @foreach ($questions as $tquestion)
+    {{-- <h2>問題タイトル一覧(設問のメンテナンス💛)</h2>
+    @foreach ($questions as $question)
     <a href="admin/{{ $question['id']}}/theme">{{$question->getData()}}</a><br>
-    @endforeach
+    @endforeach --}}
 
     <p> 問題タイトル追加❤</p>
     <table>

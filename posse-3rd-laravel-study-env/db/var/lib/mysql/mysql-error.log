@@ -1041,3 +1041,30 @@ mbind: Operation not permitted
 2021-10-31T01:30:47.583089-00:00 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
 2021-10-31T01:30:47.584891-00:00 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
 2021-10-31T01:30:47.650576-00:00 0 [Warning] [MY-011810] [Server] Insecure configuration for --pid-file: Location '/var/run/mysqld' in the path is accessible to all OS users. Consider choosing a different directory.
+2021-10-31T01:30:48.017016-00:00 0 [System] [MY-010931] [Server] /usr/sbin/mysqld: ready for connections. Version: '8.0.26'  socket: '/var/run/mysqld/mysqld.sock'  port: 3306  MySQL Community Server - GPL.
+2021-10-31T01:30:48.018124-00:00 0 [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: '::' port: 33060, socket: /var/run/mysqld/mysqlx.sock
+2021-11-03T13:29:41.937907-00:00 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.0.26) starting as process 1
+2021-11-03T13:29:41.967601-00:00 0 [Warning] [MY-010159] [Server] Setting lower_case_table_names=2 because file system for /var/lib/mysql/ is case insensitive
+2021-11-03T13:29:42.055505-00:00 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2021-11-03T13:29:43.973113-00:00 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2021-11-03T13:29:45.756600-00:00 0 [System] [MY-010229] [Server] Starting XA crash recovery...
+2021-11-03T13:29:45.767776-00:00 0 [System] [MY-010232] [Server] XA crash recovery finished.
+2021-11-03T13:29:46.091519-00:00 0 [Warning] [MY-013746] [Server] A deprecated TLS version TLSv1 is enabled for channel mysql_main
+2021-11-03T13:29:46.092981-00:00 0 [Warning] [MY-013746] [Server] A deprecated TLS version TLSv1.1 is enabled for channel mysql_main
+2021-11-03T13:29:46.121351-00:00 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+2021-11-03T13:29:46.122651-00:00 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+2021-11-03T13:29:46.182618-00:00 0 [Warning] [MY-011810] [Server] Insecure configuration for --pid-file: Location '/var/run/mysqld' in the path is accessible to all OS users. Consider choosing a different directory.
+2021-11-03T13:29:46.472270-00:00 0 [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: '::' port: 33060, socket: /var/run/mysqld/mysqlx.sock
+2021-11-03T13:29:46.472566-00:00 0 [System] [MY-010931] [Server] /usr/sbin/mysqld: ready for connections. Version: '8.0.26'  socket: '/var/run/mysqld/mysqld.sock'  port: 3306  MySQL Community Server - GPL.
+mbind: Operation not permitted
+2021-11-06T12:19:10.523731-00:00 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.0.26) starting as process 1
+2021-11-06T12:19:10.536275-00:00 0 [Warning] [MY-010159] [Server] Setting lower_case_table_names=2 because file system for /var/lib/mysql/ is case insensitive
+2021-11-06T12:19:10.592761-00:00 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2021-11-06T12:19:12.440075-00:00 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2021-11-06T12:19:13.310212-00:00 0 [System] [MY-010229] [Server] Starting XA crash recovery...
+2021-11-06T12:19:13.317911-00:00 0 [System] [MY-010232] [Server] XA crash recovery finished.
+2021-11-06T12:19:13.451513-00:00 0 [Warning] [MY-013746] [Server] A deprecated TLS version TLSv1 is enabled for channel mysql_main
+2021-11-06T12:19:13.452110-00:00 0 [Warning] [MY-013746] [Server] A deprecated TLS version TLSv1.1 is enabled for channel mysql_main
+2021-11-06T12:19:13.475874-00:00 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+2021-11-06T12:19:13.477611-00:00 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+2021-11-06T12:19:13.516287-00:00 0 [Warning] [MY-011810] [Server] Insecure configuration for --pid-file: Location '/var/run/mysqld' in the path is accessible to all OS users. Consider choosing a different directory.

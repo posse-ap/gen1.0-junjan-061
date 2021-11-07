@@ -26,12 +26,15 @@ class quizyController extends Controller
 
     public function show($id)
     {
-        $theme = new Theme;
+
+        $themes = Theme::where('question_id', $id)->get();
+        // $theme = new Theme;
         // $items = $item->with('choices')->find($id);
         // $themes = $theme->with('themes')->find($id);
-        $themes = Theme::where('question_id' $id)->get();
-        dd($themes);
+        // $themes = Theme::where('question_id' $id)->get();
+        // dd($themes);
         $choices = Choice::get();
+        // $choices = Choice::where('theme_id', $id)->get();
         // $items->get();
         // $items = Question::find($id)->choices;
         // dd($items['choices']);
