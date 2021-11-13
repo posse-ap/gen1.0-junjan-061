@@ -13,6 +13,7 @@
     <p>{{$theme['name']}}</p>
     <a href="{{ route( 'admin.delete', [ 'theme_id'=>$theme['id'] ] ) }}">削除</a>
     <a href="{{ route( 'admin.edit', [ 'theme_id'=>$theme['id'] ] ) }}">編集</a>
+    <a href="{{ route( 'admin.edit', $theme->id ) }}">編集</a>
     @foreach ($choices->where('theme_id', $theme->id) as $choice)
         <p>{{ $loop->index + 1 }}{{$choice['name']}}</p>
     @endforeach

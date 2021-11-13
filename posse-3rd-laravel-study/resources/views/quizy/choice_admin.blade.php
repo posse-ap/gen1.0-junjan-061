@@ -16,21 +16,20 @@
     <a href="{{ route( 'admin.edit', [ 'theme_id'=>$theme['id'] ] ) }}">編集</a> --}}
     @foreach ($choices->where('theme_id', $theme->id) as $choice)
 
-    <form method="POST" action="{{ route('CrazyController@update')}}">
+    <form method="POST" action="{{ route('admin.update', $choice)}}">
     @csrf
     <input type="hidden" name="id" value="{{$theme->id}}">
     <input type="text" method="post" value="{{$choice['name']}}">
 
     </form>
 
-    // <form action="/admin/{{$question->id}}" method="post">
-    //     @csrf
-    //     @method('PUT')
-        
-    //     name:<input type="text" name="name" 
-    //         value="ガチで東京の人しか解けない！更新">
-    //         <input type="submit" value="send">
-    // </form>
+    <form action="/admin/{{$question->id}}" method="post">
+        @csrf
+        @method('PUT')
+        name:<input type="text" name="name" 
+        value="ガチで東京の人しか解けない！更新">
+        <input type="submit" value="send">
+    </form>
     @endforeach
 
     <img src="/img/{{ $theme->image }}">
