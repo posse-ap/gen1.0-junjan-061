@@ -7,13 +7,13 @@
     <title>Document</title>
 </head>
 <body>
-    <h2>編集</h2>
+    <h2>編集画面</h2>
     @foreach ($questions as $question)
     @foreach ($themes as $theme)
 
     <p>{{$theme['name']}}</p>
     <a href="{{ route( 'admin.delete', [ 'theme_id'=>$theme->id ] ) }}">削除</a>
-    <a href="{{ route( 'admin.edit', ['question_id'=>$question->id, 'theme_id'=>$theme['id'] ] ) }}">編集</a>
+    <a href="{{ route( 'admin.edit', ['question_id'=>$question->id, 'theme_id'=>$theme->id ] ) }}">編集</a>
     {{-- <a href="{{ route( 'admin.edit', $theme->id ) }}">編集</a> --}}
     @foreach ($choices->where('theme_id', $theme->id) as $choice)
         <p>{{ $loop->index + 1 }}{{$choice['name']}}</p>
