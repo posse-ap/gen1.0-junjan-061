@@ -110,21 +110,26 @@ class CrazyController extends Controller
      */
     public function update(Request $request, $question_id, $theme_id)
     {
-        // $question = Question::find($question_id);
-        // $question->name = $request->name;
-        // $question->timestamps = false;  
-        // $question->save();
+        $question = Question::find($question_id);
+        $question->name = $request->name;
+        $question->timestamps = false;  
+        $question->save();
 
         // $theme = Theme::find($question_id);
-        // $theme->name = $request->name;
-        // $theme->timestamps = false;  
-        // $theme->save();
+        Theme::where('question_id', $question_id)->get();
+        $theme->name = $request->name;
+        $theme->timestamps = false;  
+        $theme->save();
 
-        $choice = Choice::find($theme_id);
+        // $choice = Choice::find($theme_id);
+        $choices = Choice::where('theme_id', $theme_id)->get();
         $choice->name = $request->name;
         $choice->timestamps = false;  
         $choice->save();
         return redirect("/admin");
+
+
+        
     }
 
     /**
