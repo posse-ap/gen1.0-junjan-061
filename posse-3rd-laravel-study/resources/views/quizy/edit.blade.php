@@ -13,7 +13,7 @@
             @method('PUT')
             <input type="hidden" name="id" value="{{$question->id}}">
             name:<input type="text" name="name" 
-                value="ガチで東京の人しか解けない！更新">
+                value="ガチで東京の人しか解けない！更新aaaa">
                 <input type="submit" value="send">
         </form>
 
