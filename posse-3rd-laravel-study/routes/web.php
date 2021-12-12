@@ -20,8 +20,10 @@ Route::get("quiz", "QuestionController@index");
 
 Route::get("admin", "CrazyController@index")->name('admin');
 
-Route::get("admin/{question_id}", "CrazyController@show")->name('admin.show');
-Route::get("admin/{question_id}/edit/{theme_id}", "CrazyController@edit")->name('admin.edit');
+Route::get("admin/question/{question_id}", "CrazyController@show")->name('admin.question');
+Route::get("admin/question/{question_id}/update", "CrazyController@update")->name('admin.update');
+Route::get("admin/theme/{question_id}", "CrazyController@show2")->name('admin.theme');
+// Route::get("admin/question/{question_id}/edit", "CrazyController@TitleEdit")->name('admin.TitleEdit');
 
 Route::post("admin/{question_id}/edit/{theme_id}/update", "CrazyController@update")->name('admin.update');
 

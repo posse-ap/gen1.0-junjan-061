@@ -11,8 +11,12 @@
 
     <h2>問題タイトル一覧💛</h2>
     @foreach ($questions as $question)
+    {{-- @foreach ($question->themes as $theme) --}}
+    <p>{{$question->id}}{{$question->name}}</p>
+    <a href="{{ route( 'admin.question', [ 'question_id'=>$question['id'] ] ) }}">問題タイトルの編集</a>
+    <a href="{{ route( 'admin.theme', [ 'question_id'=>$question['id'] ] ) }}">設問の編集</a>
+    {{-- @endforeach --}}
     {{-- <a href="admin/{{ $question['id'] }}/edit">{{$question->name}}</a><br> --}}
-    <a href="{{ route( 'admin.show', [ 'question_id'=>$question['id'] ] ) }}">{{$question->id}}{{$question->name}}</a><br>
     @endforeach
 
     {{-- <h2>問題タイトル一覧(設問のメンテナンス💛)</h2>

@@ -18,13 +18,34 @@ class CrazyController extends Controller
     {
         // $questions = Question::all();
         $questions = Question::all();
-        return view('quizy.admin', compact('questions'));
+        $themes = Theme::all();
+        return view('quizy.admin', compact('questions','themes'));
     }
 
     public function show($question_id)
     {
+        $questions = Question::find($question_id);
+        $themes = Theme::where('question_id', $question_id)->get();
+        // 問題タイトルの編集用の関数
+        // $theme = new Theme;
+        // $items = $item->with('choices')->find($id);
+        // $themes = $theme->with('themes')->find($id);
+        // $themes = Theme::where('question_id' $id)->get();
+        // dd($themes);
+        // $choices = Choice::get();
+        // $choices = Choice::where('theme_id', $id)->get();
+        // $items->get();
+        // $items = Question::find($id)->choices;
+        // dd($items['choices']);
+        // echo $items;
+        return view('quizy.title', compact('questions'));
+    }
+
+    public function show2($question_id)
+    {
         $questions = Question::all();
         $themes = Theme::where('question_id', $question_id)->get();
+        // 設問の編集用の関数
         // $theme = new Theme;
         // $items = $item->with('choices')->find($id);
         // $themes = $theme->with('themes')->find($id);
@@ -36,7 +57,7 @@ class CrazyController extends Controller
         // $items = Question::find($id)->choices;
         // dd($items['choices']);
         // echo $items;
-        return view('quizy.theme_admin', compact('questions','themes','choices'));
+        return view('quizy.theme', compact('questions','themes','choices'));
     }
 
     /**
@@ -78,7 +99,7 @@ class CrazyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Request $request, $question_id, $theme_id)
+    public function TitleEdit(Request $request, $question_id, $theme_id)
     {
         $questions = Question::all();
         $themes = Theme::where('question_id', $question_id)->get();
@@ -98,7 +119,7 @@ class CrazyController extends Controller
         // $choices = $choice->with('choices')->find($id);
 
         // dd($question);
-        return view('quizy.choice_admin',compact('choices','themes','questions'));
+        return view('quizy.title',compact('questions'));
     }
 
     /**
@@ -108,7 +129,7 @@ class CrazyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $question_id, $theme_id)
+    public function update(Request $request, $question_id)
     {
         $question = Question::find($question_id);
         $question->name = $request->name;
@@ -116,18 +137,18 @@ class CrazyController extends Controller
         $question->save();
 
         // $theme = Theme::find($question_id);
-        Theme::where('question_id', $question_id)->get();
-        $theme->name = $request->name;
-        $theme->timestamps = false;  
-        $theme->save();
+        // Theme::where('question_id', $question_id)->get();
+        // $theme->name = $request->name;
+        // $theme->timestamps = false;  
+        // $theme->save();
 
         
         // $choice = Choice::find($theme_id);
-        $choices = Choice::where('theme_id', $theme_id)->get();
-        $choice->name = $request->name;
-        $choice->timestamps = false;  
-        $choice->save();
-        return redirect("/admin");
+        // $choices = Choice::where('theme_id', $theme_id)->get();
+        // $choice->name = $request->name;
+        // $choice->timestamps = false;  
+        // $choice->save();
+        // return redirect("/admin");
 
 
         

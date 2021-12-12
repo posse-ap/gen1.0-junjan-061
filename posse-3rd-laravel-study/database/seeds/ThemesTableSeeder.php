@@ -25,19 +25,19 @@ class ThemesTableSeeder extends Seeder
         ];
         DB::table('themes')->insert($param);
         $param = [
-            'question_id' => '2',
+            'question_id' => '1',
             'name' => 'この地名は何て読む？',
             'image' => '3.png'
         ];
         DB::table('themes')->insert($param);
         $param = [
-            'question_id' => '2',
+            'question_id' => '1',
             'name' => 'この地名は何て読む？',
             'image' => '4.png'
         ];
         DB::table('themes')->insert($param);
         $param = [
-            'question_id' => '2',
+            'question_id' => '1',
             'name' => 'この地名は何て読む？',
             'image' => '5.png'
         ];
@@ -45,31 +45,31 @@ class ThemesTableSeeder extends Seeder
         $param = [
             'question_id' => '2',
             'name' => 'この地名は何て読む？',
-            'image' => '5.png'
+            'image' => '6.png'
         ];
         DB::table('themes')->insert($param);
         $param = [
             'question_id' => '2',
             'name' => 'この地名は何て読む？',
-            'image' => '5.png'
+            'image' => '7.png'
         ];
         DB::table('themes')->insert($param);
         $param = [
             'question_id' => '2',
             'name' => 'この地名は何て読む？',
-            'image' => '5.png'
+            'image' => '8.png'
         ];
         DB::table('themes')->insert($param);
         $param = [
             'question_id' => '2',
             'name' => 'この地名は何て読む？',
-            'image' => '5.png'
+            'image' => '9.png'
         ];
         DB::table('themes')->insert($param);
         $param = [
             'question_id' => '2',
             'name' => 'この地名は何て読む？',
-            'image' => '5.png'
+            'image' => '10.png'
         ];
         DB::table('themes')->insert($param);
         $param = [
