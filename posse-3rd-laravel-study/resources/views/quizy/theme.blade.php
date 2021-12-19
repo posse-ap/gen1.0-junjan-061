@@ -8,10 +8,11 @@
 </head>
 <body>
     <h2>設問の編集画面</h2>
-    @foreach ($themes as $theme)
+    @foreach ($questions as $question)
+    @foreach ($question->themes as $theme)
 
-    <p>{{$theme['name']}}</p>
-    <a href="{{ route( 'admin.delete', [ 'theme_id'=>$theme->id ] ) }}">削除</a>
+    <p>{{$theme['id']}}.この地名は何て読む？</p>
+    {{-- <a href="{{ route( 'admin.delete', [ 'theme_id'=>$theme->id ] ) }}">削除</a> --}}
     {{-- <a href="{{ route( 'admin.edit', ['question_id'=>$question->id, 'theme_id'=>$theme->id ] ) }}">編集</a> --}}
     {{-- <a href="{{ route( 'admin.edit', $theme->id ) }}">編集</a> --}}
     {{-- @foreach ($choices->where('theme_id', $theme->id) as $choice)
@@ -19,14 +20,23 @@
     @endforeach --}}
 
     <img src="/img/{{ $theme->image }}">
+    <form action="{{ route('admin.update_theme', $theme->id) }}" enctype="multipart/form-data" method="POST">
+        @csrf
+        {{-- @method('PATCH') --}}
+        {{-- <input type="hidden" name="id" value="{{$}}"> --}}
+        <input type="file" name="image">
+        {{-- name:<input type="text" name="name" value="{{optional($questions->question)->name}}"> --}}
+            <input type="submit" value="画像更新！">
+    </form>
+    <a href="{{ route( 'admin.choice', [ 'theme_id'=>$theme['id'] ] ) }}">選択肢の編集</a>
     @endforeach
-
+    @endforeach
     <h2>問題追加</h2>
     <table>
         <form action="/admin" method="post">
             @csrf
-            <tr><th>問題追加 </th><td><input type="text" name="name"
-            value="{{old('name')}}"></td></tr>
+            <tr><th>設問追加</th><td><input type="text" name="name"
+            value=""></td></tr>
             <tr><th></th><td><input type="submit" value="send"></td></tr>
         </form>
     </table>

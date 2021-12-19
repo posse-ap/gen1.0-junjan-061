@@ -14,68 +14,52 @@ class ThemesTableSeeder extends Seeder
     {
         $param = [
             'question_id' => '1',
-            'name' => 'この地名は何て読む？',
             'image' => '1.png'
         ];
         DB::table('themes')->insert($param);
         $param = [
             'question_id' => '1',
-            'name' => 'この地名は何て読む？',
             'image' => '2.png'
         ];
         DB::table('themes')->insert($param);
         $param = [
             'question_id' => '1',
-            'name' => 'この地名は何て読む？',
             'image' => '3.png'
         ];
         DB::table('themes')->insert($param);
         $param = [
             'question_id' => '1',
-            'name' => 'この地名は何て読む？',
             'image' => '4.png'
         ];
         DB::table('themes')->insert($param);
         $param = [
             'question_id' => '1',
-            'name' => 'この地名は何て読む？',
             'image' => '5.png'
         ];
         DB::table('themes')->insert($param);
         $param = [
             'question_id' => '2',
-            'name' => 'この地名は何て読む？',
             'image' => '6.png'
         ];
         DB::table('themes')->insert($param);
         $param = [
             'question_id' => '2',
-            'name' => 'この地名は何て読む？',
             'image' => '7.png'
         ];
         DB::table('themes')->insert($param);
         $param = [
             'question_id' => '2',
-            'name' => 'この地名は何て読む？',
             'image' => '8.png'
         ];
         DB::table('themes')->insert($param);
         $param = [
             'question_id' => '2',
-            'name' => 'この地名は何て読む？',
             'image' => '9.png'
         ];
         DB::table('themes')->insert($param);
         $param = [
             'question_id' => '2',
-            'name' => 'この地名は何て読む？',
             'image' => '10.png'
-        ];
-        DB::table('themes')->insert($param);
-        $param = [
-            'question_id' => '2',
-            'name' => 'この地名は何て読む？',
-            'image' => '5.png'
         ];
         DB::table('themes')->insert($param);
     }
