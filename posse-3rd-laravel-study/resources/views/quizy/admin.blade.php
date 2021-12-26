@@ -25,6 +25,7 @@
     @endforeach --}}
 
     <p> 問題タイトル追加❤</p>
+    
     <table>
         <form action="/admin" method="post">
         @csrf
