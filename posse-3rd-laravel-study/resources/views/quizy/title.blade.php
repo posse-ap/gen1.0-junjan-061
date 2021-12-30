@@ -10,25 +10,8 @@
     <h1>タイトルデータ更新</h1>
         <form action="{{ route('admin.update_question', $questions->id) }}" enctype="multipart/form-data" method="POST">
             @csrf
-            {{-- @method('PUT') --}}
-            {{-- <input type="hidden" name="id" value="{{$}}"> --}}
             name:<input type="text" name="name" value="ガチで東京の人しか解けない！更新">
-            {{-- name:<input type="text" name="name" value="{{optional($questions->question)->name}}"> --}}
                 <input type="submit" value="send">
         </form>
-
-        {{-- <h1>データ削除</h1> --}}
-        {{-- <form action="/admin/{{$question->id}}" method="post"> --}}
-            {{-- @csrf --}}
-            {{-- @method('DELETE') --}}
-            {{-- <input type="hidden" name="id" value="{{$question->id}}"> --}}
-            {{-- <input type="hidden" name="_method" value="put"> --}}
-                {{-- <input type="submit" value="send"> --}}
-        {{-- </form> --}}
-        {{-- <p>{{ $choices['name'] }}</p> --}}
-        {{-- @foreach ($themes['themes'] as $theme)
-        {{-- <p>{{$choice['name']}}</p> --}}
-        {{-- <p>{{$theme['name']}}</p> --}}
-        {{-- @endforeach --}}
 </body>
 </html>
