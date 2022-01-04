@@ -31,17 +31,20 @@ class CrazyController extends Controller
 
     public function edit_theme($question_id)
     {
-        // 設問の編集用の関数
         $themes = Theme::where('question_id', $question_id)->get();
         return view('quizy.theme', compact('themes'));
     }
 
     public function update_theme(Request $request, $theme_id)
     {
-        $themes = Theme::find($theme_id);
-        $themes->image = $request->image;
-        $themes->timestamps = false;  
-        $themes->save();
+        // $themes = Theme::find($theme_id);
+        // $themes->image = $request->image;
+        // $themes->timestamps = false;  
+        // $themes->save();
+        $file = $request->file;
+        $fileName = $request->{'name'} . '.png';
+        $path = public_path('img/');
+        $file->move($path, $fileName);
         return redirect("/admin");
     }
 
@@ -91,6 +94,14 @@ class CrazyController extends Controller
 
     public function store_theme(Request $request)
     {
+
+        
+
+        $question = new Question;
+        $question->big_question_id = $id;
+        $question->image = $fileName;
+        $question->save();
+
         $theme = new Theme;
         $form = $request->all();
         unset($form['_token']);

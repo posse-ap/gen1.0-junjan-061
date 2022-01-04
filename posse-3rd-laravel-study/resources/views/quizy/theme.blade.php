@@ -15,7 +15,7 @@
     <img src="/img/{{ $theme->image }}">
     <form action="{{ route('admin.update_theme', $theme->id) }}" enctype="multipart/form-data" method="POST">
         @csrf
-        <input type="file" name="image">
+        <input type="file" name="file">
             <input type="submit" value="画像更新！">
     </form>
     <a href="{{ route( 'admin.choice', [ 'theme_id'=>$theme['id'] ] ) }}">選択肢の編集</a>
