@@ -52,6 +52,7 @@ class AdminController extends Controller
         if($choices === null){
             abort(404);
             }
+            
         foreach ($choices as $index => $choice) {
 
             $validated = $choice->name = $request->validate([
