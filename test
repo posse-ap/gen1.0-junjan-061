@@ -1,1 +1,31 @@
-test
+モーダルから学習時間を入力(データをDBに突っ込む)
+ブレードに表示する
+today 日付でフィルターかける where的な処理
+month 月毎の学習時間を合計で出す
+total 全ての合計を足し上げる
+
+テーブル構成
+【学習言語】
+id language 
+1 javascript
+2 css
+3 php
+4 html
+5 laravel
+6 sql
+7 shell
+8 情報システム基礎知識(その他)
+
+【学習時間】
+id hour date language_id content_id
+
+
+【学習コンテンツ】
+id contents
+1 ドットインストール
+2 N予備校
+3 POSSE課題
+
+1.月ごとの時間を持ってくるapi
+        2.月ごとの学習言語の割合api
+        3.コンテンツの時間配分のapi

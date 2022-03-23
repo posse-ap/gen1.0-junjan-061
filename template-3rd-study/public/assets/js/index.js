@@ -194,14 +194,14 @@ google.setOnLoadCallback(drawCircle_language);
 function drawCircle_language() {
     var data2 = new google.visualization.arrayToDataTable([
         ['language', 'hour'],
-        ['javascript', 5.9],
-        ['css', 11.8],
-        ['php', 12],
-        ['html', 30],
-        ['laravel', 5],
-        ['sql', 20],
-        ['shell', 20],
-        ['others', 10]
+        ['javascript', {$js}],
+        ['css', '{{$js}}'],
+        ['php', '{{$js}}'],
+        ['html', '{{$js}}'],
+        ['laravel', '{{$js}}'],
+        ['sql', '{{$js}}'],
+        ['shell', '{{$js}}'],
+        ['others', '{{$js}}']
     ]);
     
     var formatter2 = new google.visualization.NumberFormat({ pattern: '#,###.0' + '時間' });

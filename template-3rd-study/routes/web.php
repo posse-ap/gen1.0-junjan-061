@@ -16,3 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get("webapp", "CrazyController@index")->name('admin');
+
+// Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
