@@ -10,6 +10,7 @@
     <link href="{{asset('assets/css/styles.css')}}" rel="stylesheet">
 	{{-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
 	integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"> --}}
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -100,7 +101,6 @@
 							</section>
 						</div>
 					</div>
-
 					<!-- 学習コンテンツ right2 -->
 					<div class="right_contents">
 						<h3 class="right_box_titles">学習コンテンツ</h3>
@@ -113,6 +113,7 @@
 							</section>
 							<section class="study_contents"><span class="circle" id="s_color20BEDE"></span>POSSE課題
 							</section>
+							{{-- {{dd($js_int)}} --}}
 						</div>
 					</div>
 				</div>
@@ -128,73 +129,288 @@
 			<!-- この中はpc版では見えてない -->
 		</div>
 	</main>
-	<!--モーダル -->
+	{{-- <div class="modal fade" id="modalPost" tab-index="-1" aria-hidden="true">
+		<div class="modal-dialog">
+		  <div class="modal-content">
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			  <span aria-hidden="true">&times;</span>
+			</button>
+			<div class="modal-container">
+			  <form action="" method="POST">
+				@csrf
+				<div class="form-group d-lg-flex justify-content-between">
+				  <div class="modal-left-parts">
+					<div class="modal-date-part">
+					  <p class="font-weight-bold modal-title">学習日</p>
+					  <input type="text" id="studyDate" data-toggle="modal" data-target="#modalCalendar" name="date" readonly>
+					</div>
+					<div class="modal-contents-pc-part d-none d-lg-block pt-3">
+					  <p class="font-weight-bold modal-title">学習コンテンツ (複数選択可)</p>
+					  <input id="contents1" type="checkbox" value="1" name="contents[]">
+					  <label for="contents1">ドットインストール</label>
+					  
+					  <input id="contents2" type="checkbox" value="2" name="contents[]">
+					  <label for="contents2">N予備校</label>
+	
+					  <input id="contents3" type="checkbox" value="3" name="contents[]">
+					  <label for="contents3">POSSE課題</label>
+					</div>
+	
+					<div class="modal-contents-sp-part d-block d-lg-none pt-3">
+					  <p class="font-weight-bold modal-title">学習コンテンツ (複数選択可)</p>
+					  <div class="modal-contents-select-box" id="modal-contents-select-box">
+						<select>
+						  <option>N予備校</option>
+						</select>
+						<div class="modal-contents-over-select"></div>
+					  </div>
+					  <div id="modal-contents-check-box">
+						<input type="checkbox" id="contents4" value="1" name="contents[]">
+						<label for="contents4">ドットインストール</label>
+						
+						<input type="checkbox" id="contents5" value="2" name="contents[]">
+						<label for="contents5">N予備校</label>
+	
+						<input type="checkbox" id="contents6" value="3" name="contents[]">
+						<label for="contents6">POSSE課題</label>
+					  </div>
+					</div>
+	
+					<div class="modal-language-pc-part d-none d-lg-block pt-3">
+					  <p class="font-weight-bold modal-title">学習言語 (複数選択可)</p>
+					  <input id="language1" type="checkbox" value="1" name="languages[]">
+					  <label for="language1">HTML</label>
+	
+					  <input id="language2" type="checkbox" value="2" name="languages[]">
+					  <label for="language2">CSS</label>
+	
+					  <input id="language3" type="checkbox" value="3" name="languages[]">
+					  <label for="language3">JavaScript</label>
+	
+					  <input id="language4" type="checkbox" value="4" name="languages[]">
+					  <label for="language4">PHP</label>
+	
+					  <input id="language5" type="checkbox" value="5" name="languages[]">
+					  <label for="language5">Laravel</label>
+	
+					  <input id="language6" type="checkbox" value="6" name="languages[]">
+					  <label for="language6">SQL</label>
+	
+					  <input id="language7" type="checkbox" value="7" name="languages[]">
+					  <label for="language7">SHELL</label>
+	
+					  <input id="language8" type="checkbox" value="8" name="languages[]">
+					  <label for="language8">情報システム基礎知識(その他)</label>
+					</div>
+	
+					<div class="modal-language-sp-part d-block d-lg-none pt-3">
+					  <p class="font-weight-bold modal-title">学習言語 (複数選択可)</p>
+					  <div class="modal-language-select-box" id="modal-language-select-box">
+						<select>
+						  <option>HTML</option>
+						</select>
+						<div class="modal-language-over-select"></div>
+					  </div>
+					  <div id="modal-language-check-box">
+						<input id="language9" type="checkbox" value="1" name="languages[]">
+						<label for="language9">HTML</label>
+	
+						<input id="language10" type="checkbox" value="2" name="languages[]">
+						<label for="language10">CSS</label>
+	
+						<input id="language11" type="checkbox" value="3" name="languages[]">
+						<label for="language11">JavaScript</label>
+	
+						<input id="language12" type="checkbox" value="4" name="languages[]">
+						<label for="language12">PHP</label>
+	
+						<input id="language13" type="checkbox" value="5" name="languages[]">
+						<label for="language13">Laravel</label>
+	
+						<input id="language14" type="checkbox" value="6" name="languages[]">
+						<label for="language14">SQL</label>
+	
+						<input id="language15" type="checkbox" value="7" name="languages[]">
+						<label for="language15">SHELL</label>
+	
+						<input id="language16" type="checkbox" value="8" name="languages[]">
+						<label for="language16">情報システム基礎知識(その他)</label>
+					  </div>
+					</div>
+				  </div>
+				  <div class="modal-right-parts pt-3 pt-lg-0">
+					<div class="modal-time-part">
+					  <p class="font-weight-bold modal-title">学習時間</p>
+					  <input type="text" name="hour">
+					</div>
+					<div class="modal-twitter-part pt-3">
+					  <p class="font-weight-bold modal-title">Twitter用コメント</p>
+					  <textarea id="postTwitter" cols="0" rows="9" name="twittertext"></textarea>
+					</div>
+					<div class="modal-twitter-auto-part pt-1">
+					  <input id="twitter" type="checkbox" checked name="twitter"><label for="twitter">Twitterに自動投稿する</label>
+					</div>
+				  </div>
+				</div>
+				<button type="submit" class="post-btn d-block mx-auto mt-3 mb-4" id="to-modalLoading" data-toggle="modal" data-target="#modalLoading">記録・投稿</button>
+			  </form>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	  <!-- modal main -->
+	
+	  <!-- modal calendar -->
+	  <div class="modal fade" id="modalCalendar" tab-index="-1" aria-hidden="true">
+		<div class="modal-dialog">
+		  <div class="modal-content">
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			  <span aria-hidden="true">&larr;</span>
+			</button>
+			<div class="modal-container">
+			  <div class="modal-calendar">
+				<table>
+				  <thead>
+					<tr>
+					  <th id="calendarPrev" colspan="2">&lt;</th>
+					  <th id="calendarThisMonth" colspan="3"></th>
+					  <th id="calendarNext" colspan="2">&gt;</th>
+					</tr>
+					<tr class="calendar-day">
+					  <th>Sun</th>
+					  <th>Mon</th>
+					  <th>Tue</th>
+					  <th>Wed</th>
+					  <th>Thu</th>
+					  <th>Fri</th>
+					  <th>Sat</th>
+					</tr>
+				  </thead>
+	
+				  <tbody id="calendar-tbody">
+				  </tbody>
+				</table>
+				<button type="button" class="post-btn d-block mx-auto mt-4" id="decideCalendar">決定</button>
+			  </div>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	  <!-- modal calendar -->
+	
+	  <!-- modal loading -->
+	  <div class="modal fade" id="modalLoading" tab-index="-1" aria-hidden="true">
+		<div class="modal-dialog">
+		  <div class="modal-content">
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			  <span aria-hidden="true">&times;</span>
+			</button>
+			<div class="modal-container">
+			  <div class="loader-wrap">
+				<div class="loader">Loading...</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	  <!-- modal loading -->
+	
+	  <!-- modal success -->
+	  <div class="modal fade" id="modalSuccess" tab-index="-1" aria-hidden="true">
+		<div class="modal-dialog modal-success-dialog">
+		  <div class="modal-content">
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			  <span aria-hidden="true">&times;</span>
+			</button>
+			<div class="modal-container text-center">
+			  <p class="modal-success-color">AWESOME!</p>
+			  <span class="modal-success-color modal-check-mark"></span>
+			  <p>記録・投稿<br>完了しました</p>
+			</div>
+		  </div>
+		</div>
+	  </div> --}}
+	  <!-- modal success -->
+	{{-- モーダル
 	<div id="modal_area" class="modal_area">
 		<div id="close_modal" class="close_modal">×</div>
-		<!-- モーダルのメイン部分 -->
-		<div class="modal_main" id="modal_main">
-
-			<!-- モーダルの左側 -->
+		<form action="{{ route('add') }}" method="POST">
+		@csrf
+			モーダルのメイン部分
+			<div class="modal_main" id="modal_main">
+			
+			モーダルの左側
 			<div class="modal_left">
-				<!-- 学習日 -->
+				学習日
 				<div class="modal_day">
 					<h3 class="title">学習日</h3>
-					<input type="text" class="modal_day_input" id="study_day">
+					<input type="text" name="date" class="modal_day_input" id="study_day">
 				</div>
-				<!-- 学習コンテンツ -->
+				学習コンテンツ
 				<div class="modal_study_contents">
 					<h3 class="title">学習コンテンツ（複数選択可）</h3>
 					<form class="modal_study_contents_all" name="study_contents">
-						<label class="modal_study_contents_check" name="checked" value="グレー"><input type="checkbox" class="Checkbox"
+						<label class="modal_study_contents_check" name="checked" value="グレー">
+							<input type="checkbox" name="content_id" value="1" class="Checkbox"
 								id="c_box1" onclick="chebg('c_box1')"><span
 								class="check_content Checkbox-fontas">N予備校</span></label>
-						<label class="modal_study_contents_check" name="checked" value="グレー"><input type="checkbox" class="Checkbox"
+						<label class="modal_study_contents_check"  value="グレー">
+							<input type="checkbox"  name="content_id" value="2" class="Checkbox"
 								id="c_box2" onclick="chebg('c_box2')"><span
 								class="check_content Checkbox-fontas">ドットインストール</span></label>
-						<label class="modal_study_contents_check" name="checked" value="グレー"><input type="checkbox" class="Checkbox"
+						<label class="modal_study_contents_check" name="checked" value="グレー">
+							<input type="checkbox" class="Checkbox"  name="content_id" value="3"
 								id="c_box3" onclick="chebg('c_box3')"><span
 								class="check_content Checkbox-fontas">POSSE課題</span></label>
 					</form>
 				</div>
-				<!-- 学習言語 -->
+				学習言語
 				<div class="modal_study_languages">
 					<h3 class="title">学習コンテンツ（複数選択可）</h3>
-					<form class="modal_study_languages_all" name="study_languages">
-						<label class="modal_study_languages_check" name="checked" value="グレー"><input type="checkbox"
-								class="Checkbox" id="c_box4" onclick="chebg('c_box4')"><span
-								class="check_language Checkbox-fontas">HTML</span></label>
-						<label class="modal_study_languages_check " name="checked" value="グレー"><input type="checkbox"
-								class="Checkbox" id="c_box5" onclick="chebg('c_box5')"><span
+					<form class="modal_study_languages_all" name="study_languages" type="post">
+						<label class="modal_study_languages_check" name="checked" value="グレー">
+							<input type="checkbox"
+								class="Checkbox" id="c_box4" name="language_id[]" value="4" onclick="chebg('c_box4')">
+								<span class="check_language Checkbox-fontas">HTML</span></label>
+						<label class="modal_study_languages_check " name="checked" value="グレー">
+							<input type="checkbox"
+								class="Checkbox" id="c_box5" name="language_id[]" value="2" onclick="chebg('c_box5')"><span
 								class="check_language Checkbox-fontas">CSS</span></label>
-						<label class="modal_study_languages_check " name="checked" value="グレー"><input type="checkbox"
-								class="Checkbox" id="c_box6" onclick="chebg('c_box6')"><span
+						<label class="modal_study_languages_check " name="checked" value="グレー">
+							<input type="checkbox"
+								class="Checkbox" id="c_box6" name="language_id[]" value="1" onclick="chebg('c_box6')"><span
 								class="check_language Checkbox-fontas">JavaScrpt</span></label>
-						<label class="modal_study_languages_check" name="checked" value="グレー"><input type="checkbox"
-								class="Checkbox" id="c_box7" onclick="chebg('c_box7')"><span
+						<label class="modal_study_languages_check" name="checked" value="グレー">
+							<input type="checkbox"
+								class="Checkbox" id="c_box7" name="language_id[]" value="3" onclick="chebg('c_box7')"><span
 								class="check_language Checkbox-fontas">PHP</span></label>
-						<label class="modal_study_languages_check" name="checked" value="グレー"><input type="checkbox"
-								class="Checkbox" id="c_box8" onclick="chebg('c_box8')"><span
+						<label class="modal_study_languages_check" name="checked" value="グレー">
+							<input type="checkbox"
+								class="Checkbox" id="c_box8" name="language_id[]" value="5" onclick="chebg('c_box8')"><span
 								class="check_language Checkbox-fontas">Laravel</span></label>
-						<label class="modal_study_languages_check" name="checked" value="グレー"><input type="checkbox"
-								class="Checkbox" id="c_box9" onclick="chebg('c_box9')"><span
+						<label class="modal_study_languages_check" name="checked" value="グレー">
+							<input type="checkbox"
+								class="Checkbox" id="c_box9" name="language_id[]" value="6" onclick="chebg('c_box9')"><span
 								class="check_language Checkbox-fontas">SQL</span></label>
-						<label class="modal_study_languages_check" name="checked" value="グレー"><input type="checkbox"
-								class="Checkbox" id="c_box10" onclick="chebg('c_box10')"><span
+						<label class="modal_study_languages_check" name="checked" value="グレー">
+							<input type="checkbox"
+								class="Checkbox" id="c_box10" name="language_id[]" value="7" onclick="chebg('c_box10')"><span
 								class="check_language Checkbox-fontas">SHELL</span></label>
-						<label class="modal_study_languages_check" name="checked" value="グレー"><input type="checkbox"
-								class="Checkbox" id="c_box11" onclick="chebg('c_box11')"><span
+						<label class="modal_study_languages_check" name="checked" value="グレー">
+							<input type="checkbox"
+								class="Checkbox" id="c_box11" name="language_id[]" value="8" onclick="chebg('c_box11')"><span
 								class="check_language Checkbox-fontas">情報システム基礎知識（その他）</span></label>
 					</form>
 				</div>
 			</div>
-
+			
 			
 
-			<!-- モーダルの右側 -->
+			モーダルの右側
 			<div class="modal_right">
 				<div class="modal_hour">
 					<h3 class="title">学習時間</h3>
-					<input type="text" name="" class="modal_hour_input" id="study_hour">
+					<input type="text" name="hour" class="modal_hour_input" id="study_hour">
 				</div>
 
 				<div class="modal_tweeter_comnent">
@@ -209,26 +425,27 @@
 				</div>
 			</div>
 			<div class="modal_footer sp">
-				<button class="modal_footer_btn" id="tweet2">記録・投稿</button>
+				<button class="modal_footer_btn" type="submit" id="tweet2">記録・投稿</button>
 			</div>
+		</form>
 		</div>
-		<!-- ロード画面（記録・投稿ボタンをクリック時に出現 -->
+		ロード画面（記録・投稿ボタンをクリック時に出現
 		<div class="load" id="load">
 			<svg id="loading" width="100" height="100" viewBox="0 0 100 100">
 				<circle cx="50" cy="50" r="40" />
 			</svg>
 			<img id="loaded" src="./image/awesome.png" alt="" class="awesome">
 		</div>
-		<!-- モーダルのフッター -->
+		モーダルのフッター
 		<div class="modal_footer pc">
 			<button class="modal_footer_btn" id="tweet1">記録・投稿</button>
 		</div>
 	</div>
-	<!-- フッター -->
+	フッター
 	<div id="overlay" class=""></div>
 	<footer class="footer pc">
 		<h5 class="footer_text">＜ 2021年 10月 ＞</h5>
-	</footer>
+	</footer> --}}
 
     {{-- <script src="{{ asset('assets/js/index.js') }}"></script> --}}
 <script>
@@ -420,24 +637,15 @@ function drawChart() {
     // 指定されたIDの要素に棒グラフを作成
     var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
     // グラフの描画
-    chart.draw(data, options);
-};
+
 
 //学習言語円グラフ
 google.setOnLoadCallback(drawCircle_language);
 
 function drawCircle_language() {
     var data2 = new google.visualization.arrayToDataTable([
-        // ['language', 'hour'],
-        // ['javascript', ],
-        // ['css', 3],
-        // ['php', 5],
-        // ['html', 4],
-        // ['laravel', 3],
-        // ['sql', 8],
-        // ['shell', 2],
-        // ['情報システム基礎知識', 2]
-        ['javascript', {{$js_int}}],
+        ['language', 'hour'],
+        ['javascript', {{$total_int}}],
         ['css', {{$css_int}}],
         ['php', {{$php_int}}],
         ['html', {{$html_int}}],
@@ -447,7 +655,7 @@ function drawCircle_language() {
         ['情報システム基礎知識', {{$info_base_int}}]
     ]);
 
-    dd({{$css_int}});
+    
 
     var formatter2 = new google.visualization.NumberFormat({ pattern: '#,###.0' + '時間' });
     formatter2.format(data2, 1);

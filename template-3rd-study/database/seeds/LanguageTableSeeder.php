@@ -47,7 +47,7 @@ class LanguageTableSeeder extends Seeder
         DB::table('Language')->insert($param);
 
         $param = [
-            'language' => '情報システム基礎知識(その他)',
+            'language' => 'other',
         ];
         DB::table('Language')->insert($param);
     }

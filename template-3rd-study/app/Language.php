@@ -6,8 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Language extends Model
 {
+
+    protected $table = 'Language';
+
     public function Language()
     {
-        return $this->belongsTo(Hour::class);
+        return $this->belongsTo(Language_hour::class);
     }
 }

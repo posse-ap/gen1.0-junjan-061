@@ -20,6 +20,7 @@ class CreateContentsTable extends Migration
         });
     }
 
+    
     /**
      * Reverse the migrations.
      *
