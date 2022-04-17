@@ -53,6 +53,16 @@
         </form>
     @endforeach
 
+    <p> 言語追加❤</p>
+    <table>
+        <form action= "{{ route('admin.store_language')}}" method="post">
+        @csrf
+            <tr><th>言語: </th><td><input type="text" name="language"
+            value=""></td></tr>
+            <tr><th></th><td><input type="submit" value="言語追加"></td></tr>
+    </form>
+    </table>
+
     @foreach ($contents as $content)
         <form action="{{ route('admin.update_content', $content->id) }}" enctype="multipart/form-data" method="POST">
             @csrf
@@ -66,6 +76,15 @@
             <input type="hidden" name="id" value="{{ $content->id }}">
         </form>
     @endforeach
+    <p> 言語追加❤</p>
+    <table>
+        <form action= "{{ route('admin.store_content')}}" method="post">
+        @csrf
+            <tr><th>学習コンテンツ: </th><td><input type="text" name="content"
+            value=""></td></tr>
+            <tr><th></th><td><input type="submit" value="コンテンツ追加"></td></tr>
+    </form>
+    </table>
 </body>
 
 </html>

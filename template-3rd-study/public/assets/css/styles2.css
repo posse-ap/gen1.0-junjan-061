@@ -119,16 +119,6 @@ body{
     padding-right: 10px;
   }
   
-  .item-list span::before {
-    display: inline-block;
-    vertical-align: -8%;
-    content: '';
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    margin-right: 4px;
-    background-color: #0f71bc;
-  }
   
   /* main */
   

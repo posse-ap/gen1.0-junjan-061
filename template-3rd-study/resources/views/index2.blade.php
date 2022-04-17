@@ -63,14 +63,11 @@
                             <h2 class="font-weight-bold lg-h5 mb-0">学習言語</h2>
                             <div id="language_piechart"></div>
                             <div class="item-list">
-                                <span class="item">HTML</span>
-                                <span class="item">CSS</span>
-                                <span class="item">JavaScript</span>
-                                <span class="item">PHP</span>
-                                <span class="item">Laravel</span>
-                                <span class="item">SQL</span>
-                                <span class="item">SHELL</span>
-                                <span class="item">情報システム基礎知識(その他)</span>
+
+                                @foreach ($languages as $language)
+                                <span class="item" style="color: {{$language->color}}">{{$language->language}}</span>
+                                @endforeach
+                                
                             </div>
                         </div>
                     </section>
@@ -79,9 +76,9 @@
                             <h2 class="font-weight-bold lg-h5 mb-0">学習コンテンツ</h2>
                             <div id="contents_piechart"></div>
                             <div class="item-list">
-                                <span class="item">ドットインストール</span>
-                                <span class="item">N予備校</span><br>
-                                <span class="item">POSSE課題</span>
+                                @foreach ($contents as $content)
+                                <span class="item" style="">{{$content->name}}</span>
+                                @endforeach
                             </div>
                         </div>
                     </section>
@@ -148,29 +145,13 @@
 
                                 <section class="modal-language-pc-part d-none d-lg-block pt-3">
                                     <p class="font-weight-bold modal-title">学習言語 (複数選択可)</p>
-                                    <input id="language1" type="checkbox" name="language_id[]" value="4">
-                                    <label for="language1">HTML</label>
+                                    @foreach ($languages as $language)
 
-                                    <input id="language2" type="checkbox" name="language_id[]" value="2">
-                                    <label for="language2">CSS</label>
-
-                                    <input id="language3" type="checkbox" name="language_id[]" value="1">
-                                    <label for="language3">JavaScript</label>
-
-                                    <input id="language4" type="checkbox" name="language_id[]" value="3">
-                                    <label for="language4">PHP</label>
-
-                                    <input id="language5" type="checkbox" name="language_id[]" value="5">
-                                    <label for="language5">Laravel</label>
-
-                                    <input id="language6" type="checkbox" name="language_id[]" value="6">
-                                    <label for="language6">SQL</label>
-
-                                    <input id="language7" type="checkbox" name="language_id[]" value="7">
-                                    <label for="language7">SHELL</label>
-
-                                    <input id="language8" type="checkbox" name="language_id[]" value="8">
-                                    <label for="language8">情報システム基礎知識(その他)</label>
+                                    <input id="language{{$language->id}}" type="checkbox" name="language_id[]" value="{{$language->id}}">
+                                    <label for="language{{$language->id}}">{{$language->language}}</label>
+                                    
+                                    @endforeach
+                                    
                                 </section>
 
                                 <div class="modal-language-sp-part d-block d-lg-none pt-3">
@@ -433,33 +414,7 @@
             pieHole: 0.5,
             // チャートの部分ごとにカラーを指定
             slices: {
-                0: {
-                    color: '#2222ff'
-                },
-                1: {
-                    color: '#3344ff'
-                },
-                2: {
-                    color: '#4466ff'
-                },
-                3: {
-                    color: '#5588ff'
-                },
-                4: {
-                    color: '#6699ff'
-                },
-                5: {
-                    color: '#77aaff'
-                },
-                6: {
-                    color: '#88ccff'
-                },
-                7: {
-                    color: '#99ddff'
-                },
-                8: {
-                    color: '#aaeeff'
-                },
+                {!!$language_chart_color!!}
             },
             // チャートサイズ
             chartArea: {

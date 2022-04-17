@@ -8,7 +8,7 @@ class Language_hour extends Model
 {
     protected $table = "languages_hour"; 
 
-    protected $fillable = ['hour', 'date', 'language_id'];
+    protected $fillable = ['hour', 'date', 'language_id','user_id'];
 
     public function Language()
     {

@@ -7,34 +7,65 @@ use App\Language_hour;
 use App\Content_hour;
 use App\User;
 use App\Content;
-use App\Language;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Language;
+use Illuminate\Support\Facades\Http;
+use GuzzleHttp\Client;
 
 class CrazyController extends Controller
-{
+{    // public function __construct(){    //     $this->middleware('auth');
 
-    // public function __construct(){
-    //     $this->middleware('auth');
     // }
+
+    public function news()
+    {
+        $url = 'https://bkrs3waxwg.execute-api.ap-northeast-1.amazonaws.com/default/news';
+        $client = new Client();
+        $response = $client->request('GET', $url)->getBody()->getContents();
+        $json = json_decode($response);
+
+        return view('news', ['blogs' => $json]);
+    }
+
+    public function detail($id)
+    {
+        $url = 'https://bkrs3waxwg.execute-api.ap-northeast-1.amazonaws.com/default/news/' .$id ;
+        $client = new Client();
+        $response = $client->request('GET', $url)->getBody()->getContents();
+        $json = json_decode($response);
+        $detail = $json;
+        // dd($detail);
+        return view('detail', ['detail' => $detail]);
+    }
 
 
     public function index(Request $request)
     {
         $contents = Content::all();
         $languages = Language::all();
-        $language_chart_array = array(['Language', 'Hour']);
-        // ['Language', 'Hour'],
-        // ['HTML', {{ $html_float }}],
-        // ['CSS', {{ $css_float }}],
-        // ['JavaScript', {{ $js_float }}],
-        foreach ($languages as $language) {
-            $language_hour =  (float)(Language_hour::where('language_id', $language->id)->sum('hour'));
-            array_push($language_chart_array, [$language->language, $language_hour]);
-            # code...
+        $language_chart_array = "['Language', 'Hour']";
+        $language_chart_color = "";
+        $content_chart_array = "['Contents', 'Hour']";
+        $content_chart_color = "";
+
+        foreach ($languages as $index => $language) {
+            $language_hour =  (float)(Language_hour::where('language_id', $language->id)->where('user_id',  Auth::user()->id)->sum('hour'));
+            $language_chart_array.= ",[\"$language->language\", $language_hour]";
+            $language_chart_color.= " $index: {color: '$language->color'},";
         }
-        $language_chart = implode(",", $language_chart_array);
+        
+        $language_chart = $language_chart_array;
+        
+        foreach ($contents as $index => $content) {
+            $content_hour =  (float)(Content_hour::where('content_id', $content->id)->where('user_id',  Auth::user()->id)->sum('hour'));
+            $content_chart_array.= ",[\"$language->language\", $language_hour]";
+            $content_chart_color.= " $index: {color: '$language->color'},";
+        }
+        
+        $language_chart = $language_chart_array;
+
         // 今日の言語学習時間のトータルを出す処理
         $today = new Carbon();
         $today = Carbon::today();
@@ -117,7 +148,8 @@ class CrazyController extends Controller
             "nyobi_float",
             "dot_float",
             "posse_float",
-            'language_chart'
+            'language_chart',
+            'language_chart_color'
         ));
     }
 
@@ -196,7 +228,9 @@ class CrazyController extends Controller
 
     public function add(Request $request)
     {
-        $id = Auth::id();
+        // dd(Auth::user()->id);
+        // テーブルを学習コンテンツと学習言語に分ける
+        // -migrationとseederを分ける
         $study_languages = count($request->language_id);
         $study_language_time = $request->hour / $study_languages;
         foreach ($request->language_id as $language) {
@@ -204,7 +238,7 @@ class CrazyController extends Controller
                 'date' => $request->date,
                 'hour' => $study_language_time,
                 'language_id' => $language,
-                'user_id' => $id
+                'user_id' => Auth::user()->id
             ]);
         }
         // dd($request->content_id);
@@ -215,7 +249,7 @@ class CrazyController extends Controller
                 'date' => $request->date,
                 'hour' => $study_content_time,
                 'content_id' =>  $content,
-                'user_id' => $id
+                'user_id' => Auth::user()->id
             ]);
         }
 
