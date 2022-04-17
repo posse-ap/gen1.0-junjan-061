@@ -47,6 +47,7 @@ class CrazyController extends Controller
         $languages = Language::all();
         $language_chart_array = "['Language', 'Hour']";
         $language_chart_color = "";
+
         $content_chart_array = "['Contents', 'Hour']";
         $content_chart_color = "";
 
@@ -55,16 +56,16 @@ class CrazyController extends Controller
             $language_chart_array.= ",[\"$language->language\", $language_hour]";
             $language_chart_color.= " $index: {color: '$language->color'},";
         }
-        
         $language_chart = $language_chart_array;
+        dd($language_chart);
         
         foreach ($contents as $index => $content) {
             $content_hour =  (float)(Content_hour::where('content_id', $content->id)->where('user_id',  Auth::user()->id)->sum('hour'));
-            $content_chart_array.= ",[\"$language->language\", $language_hour]";
-            $content_chart_color.= " $index: {color: '$language->color'},";
+            $content_chart_array.= ",[\"$content->content\", $content_hour]";
+            $content_chart_color.= " $index: {color: '$content->color'},";
         }
         
-        $language_chart = $language_chart_array;
+        $content_chart = $content_chart_array;
 
         // 今日の言語学習時間のトータルを出す処理
         $today = new Carbon();
@@ -149,7 +150,9 @@ class CrazyController extends Controller
             "dot_float",
             "posse_float",
             'language_chart',
-            'language_chart_color'
+            'language_chart_color',
+            'content_chart',
+            'content_chart_color',
         ));
     }
 

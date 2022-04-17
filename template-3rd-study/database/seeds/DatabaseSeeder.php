@@ -13,6 +13,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(UsersTableSeeder::class);
         $this->call(LanguageTableSeeder::class);
+        $this->call(ContentsTableSeeder::class);
         $this->call(Study_contentsTableSeeder::class);
         $this->call(Languages_hourTableSeeder::class);
         $this->call(Contents_hourTableSeeder::class);

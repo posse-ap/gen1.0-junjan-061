@@ -14,56 +14,70 @@ class Contents_hourTableSeeder extends Seeder
         $param = [
             'date' => '2022-04-03',
             'hour' => '7',
-            'content_id' => '1'
+            'content_id' => '1',
+            'user_id' => '1'
         ];
         DB::table('contents_hour')->insert($param);
 
         $param = [
             'date' => '2022-04-03',
             'hour' => '7',
-            'content_id' => '1'
+            'content_id' => '1',
+            'user_id' => '1'
+
         ];
         DB::table('contents_hour')->insert($param);
 
         $param = [
             'date' => '2022-04-03',
             'hour' => '7',
-            'content_id' => '1'
+            'content_id' => '1',
+            'user_id' => '1'
+
         ];
         DB::table('contents_hour')->insert($param);
 
         $param = [
             'date' => '2022-04-03',
             'hour' => '7',
-            'content_id' => '1'
+            'content_id' => '1',
+            'user_id' => '1'
+
         ];
         DB::table('contents_hour')->insert($param);
 
         $param = [
             'date' => '2022-04-03',
             'hour' => '7',
-            'content_id' => '1'
+            'content_id' => '1',
+            'user_id' => '1'
+
         ];
         DB::table('contents_hour')->insert($param);
 
         $param = [
             'date' => '2022-04-03',
             'hour' => '7',
-            'content_id' => '1'
+            'content_id' => '1',
+            'user_id' => '1'
+
         ];
         DB::table('contents_hour')->insert($param);
 
         $param = [
             'date' => '2022-04-03',
             'hour' => '7',
-            'content_id' => '1'
+            'content_id' => '1',
+            'user_id' => '1'
+
         ];
         DB::table('contents_hour')->insert($param);
 
         $param = [
             'date' => '2022-04-03',
-            'hour' => '7',
-            'content_id' => '1'
+            'hour' => '100',
+            'content_id' => '1',
+            'user_id' => '2'
         ];
         DB::table('contents_hour')->insert($param);
     }

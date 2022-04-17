@@ -77,7 +77,7 @@
                             <div id="contents_piechart"></div>
                             <div class="item-list">
                                 @foreach ($contents as $content)
-                                <span class="item" style="">{{$content->name}}</span>
+                                <span class="item" style="">{{$content->contents}}</span>
                                 @endforeach
                             </div>
                         </div>
@@ -113,14 +113,12 @@
                                 </section>
                                 <section class="modal-contents-pc-part d-none d-lg-block pt-3">
                                     <p class="font-weight-bold modal-title">学習コンテンツ (複数選択可)</p>
-                                    <input id="contents1" type="checkbox" name="content_id[]" value="1">
-                                    <label for="contents1">N予備校</label>
+                                    @foreach ($contents as $content)
 
-                                    <input id="contents2" type="checkbox" name="content_id[]" value="2">
-                                    <label for="contents2">ドットインストール</label>
-
-                                    <input id="contents3" type="checkbox" name="content_id[]" value="3">
-                                    <label for="contents3">POSSE課題</label>
+                                    <input id="contents{{$content->id}}" type="checkbox" name="content_id[]" value="{{$content->id}}">
+                                    <label for="contents{{$content->id}}">{{$content->contents}}</label>
+                                        
+                                    @endforeach
                                 </section>
 
                                 <section class="modal-contents-sp-part d-block d-lg-none pt-3">
@@ -431,11 +429,8 @@
 
     const createContentsChart = () => {
         // 学習コンテンツ
-        const data = google.visualization.arrayToDataTable([
-            ['Contents', 'Hour'],
-            ['ドットインストール', {{$dot_float}}],
-            ['N予備校', {{$nyobi_float}}],
-            ['POSSE課題', {{$posse_float}}],
+        let data = google.visualization.arrayToDataTable([
+            {!!$content_chart!!}
         ]);
 
         const options = {
@@ -446,15 +441,7 @@
             pieHole: 0.5,
             // チャートの部分ごとにカラーを指定
             slices: {
-                0: {
-                    color: '#2222ff'
-                },
-                1: {
-                    color: '#66aaff'
-                },
-                2: {
-                    color: '#aaddff'
-                },
+                {!!$content_chart_color!!}
             },
             // チャートサイズ
             chartArea: {

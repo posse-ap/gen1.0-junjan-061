@@ -8,7 +8,7 @@ class Content_hour extends Model
 {
     protected $table = "contents_hour";
 
-    protected $fillable = ['hour', 'date', 'content_id'];
+    protected $fillable = ['hour', 'date', 'content_id','user_id'];
 
     public function contents()
     {
