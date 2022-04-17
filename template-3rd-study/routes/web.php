@@ -17,6 +17,7 @@ Route::get('/', function () {
 
 Route::get("webapp", "CrazyController@index");
 Route::get("webapp/news", "CrazyController@news");
+Route::get('/news/{id}', 'CrazyController@detail')->name('detail');
 Route::get("webapp/admin", "CrazyController@admin")->name('admin');
 
 Route::post("webapp/admin/{user_id}/update_user", "CrazyController@update_user")->name('admin.update_user');
