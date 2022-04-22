@@ -59,6 +59,9 @@
         @csrf
             <tr><th>言語: </th><td><input type="text" name="language"
             value=""></td></tr>
+            <tr><th>色: </th><td><input type="text" name="color"
+            value="#2b2b2b"></td></tr>
+            
             <tr><th></th><td><input type="submit" value="言語追加"></td></tr>
     </form>
     </table>

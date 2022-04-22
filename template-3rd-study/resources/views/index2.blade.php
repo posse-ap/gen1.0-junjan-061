@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="{{ asset('assets/css/styles2.css') }}" rel="stylesheet">
@@ -21,7 +22,7 @@
             </div>
             <button class="post-btn mr-0 ml-auto my-auto d-none d-lg-block" data-toggle="modal"
                 data-target="#modalPost">記録・投稿</button>
-            <a  href="{{ route('admin')}}" class="post-btn mr-0 my-auto d-none d-lg-block" >ユーザ―管理</a>
+            <a href="{{ route('admin') }}" class="post-btn mr-0 my-auto d-none d-lg-block">ユーザ―管理</a>
             {{-- <button class="post-btn mr-0 ml-auto my-auto d-none d-lg-block" data-toggle="modal" data-target="#modalPost">アカウント管理</button> --}}
         </div>
     </header>
@@ -29,7 +30,7 @@
     <main>
         <div class="main-container mx-auto">
             <div class="cards d-lg-flex justify-content-between">
-            
+
                 <div class="time-section">
                     <dl class="time-cards d-flex justify-content-between">
                         <div class="card text-center py-2 py-lg-3">
@@ -65,9 +66,10 @@
                             <div class="item-list">
 
                                 @foreach ($languages as $language)
-                                <span class="item" style="color: {{$language->color}}">{{$language->language}}</span>
+                                    <span class="item"
+                                        style="color: {{ $language->color }}">{{ $language->language }}</span>
                                 @endforeach
-                                
+
                             </div>
                         </div>
                     </section>
@@ -77,7 +79,7 @@
                             <div id="contents_piechart"></div>
                             <div class="item-list">
                                 @foreach ($contents as $content)
-                                <span class="item" style="">{{$content->contents}}</span>
+                                    <span class="item" style="">{{ $content->contents }}</span>
                                 @endforeach
                             </div>
                         </div>
@@ -114,10 +116,9 @@
                                 <section class="modal-contents-pc-part d-none d-lg-block pt-3">
                                     <p class="font-weight-bold modal-title">学習コンテンツ (複数選択可)</p>
                                     @foreach ($contents as $content)
-
-                                    <input id="contents{{$content->id}}" type="checkbox" name="content_id[]" value="{{$content->id}}">
-                                    <label for="contents{{$content->id}}">{{$content->contents}}</label>
-                                        
+                                        <input id="contents{{ $content->id }}" type="checkbox" name="content_id[]"
+                                            value="{{ $content->id }}">
+                                        <label for="contents{{ $content->id }}">{{ $content->contents }}</label>
                                     @endforeach
                                 </section>
 
@@ -144,12 +145,11 @@
                                 <section class="modal-language-pc-part d-none d-lg-block pt-3">
                                     <p class="font-weight-bold modal-title">学習言語 (複数選択可)</p>
                                     @foreach ($languages as $language)
-
-                                    <input id="language{{$language->id}}" type="checkbox" name="language_id[]" value="{{$language->id}}">
-                                    <label for="language{{$language->id}}">{{$language->language}}</label>
-                                    
+                                        <input id="language{{ $language->id }}" type="checkbox" name="language_id[]"
+                                            value="{{ $language->id }}">
+                                        <label for="language{{ $language->id }}">{{ $language->language }}</label>
                                     @endforeach
-                                    
+
                                 </section>
 
                                 <div class="modal-language-sp-part d-block d-lg-none pt-3">
@@ -202,8 +202,9 @@
                                 </div>
                             </div>
                         </div>
-                        <button type="submit" class="post-btn d-block mx-auto mt-3 mb-4" id="to-modalLoading"
+                        <button type="button" class="post-btn d-block mx-auto mt-3 mb-4" id="to-modalLoading"
                             data-toggle="modal" data-target="#modalLoading">記録・投稿</button>
+                        {{-- <button type="button" class="post-btn d-block mx-auto mt-3 mb-4" id="to-modalLoading">記録・投稿</button> --}}
                     </form>
                 </div>
             </div>
@@ -283,8 +284,27 @@
     </div>
     <!-- modal success -->
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    <!-- modal error -->
+    <div class="modal fade" id="modalError" tab-index="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <div class="modal-container text-center">
+                    <p class="error-color">ERROR!</p>
+                    <span class="error-color modal-error-mark"></span>
+                    <p class="error-text">一時的にご利用できない状態です。<br>しばらく経ってから<br>再度アクセスしてください</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- modal error -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src = "https://code.jquery.com/jquery-3.5.0.min.js"
+        integrity = "sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ="
+        crossorigin = "anonymous" >
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"
         integrity="sha512-JZSo0h5TONFYmyLMqp8k4oPhuo6yNk9mHM+FY50aBjpypfofqtEWsAgRDQm94ImLCzSaHeqNvYuD9382CEn2zw=="
@@ -301,6 +321,7 @@
     <script type="text/javascript" src="./js/displayThisMonth/index.js"></script>
     <script type="text/javascript" src="./js/modal/index.js"></script>
     <script type="text/javascript" src="./js/utils/index.js"></script>
+    <script src="{{ asset('assets/js/main.js') }}"></script>
 </body>
 
 </html>
@@ -401,7 +422,7 @@
         // 学習言語
         // 2次元配列をDataTableに変更する
         let data = google.visualization.arrayToDataTable([
-            {!!$language_chart!!}
+            {!! $language_chart !!}
         ]);
 
         const options = {
@@ -412,7 +433,7 @@
             pieHole: 0.5,
             // チャートの部分ごとにカラーを指定
             slices: {
-                {!!$language_chart_color!!}
+                {!! $language_chart_color !!}
             },
             // チャートサイズ
             chartArea: {
@@ -430,7 +451,7 @@
     const createContentsChart = () => {
         // 学習コンテンツ
         let data = google.visualization.arrayToDataTable([
-            {!!$content_chart!!}
+            {!! $content_chart !!}
         ]);
 
         const options = {
@@ -441,7 +462,7 @@
             pieHole: 0.5,
             // チャートの部分ごとにカラーを指定
             slices: {
-                {!!$content_chart_color!!}
+                {!! $content_chart_color !!}
             },
             // チャートサイズ
             chartArea: {

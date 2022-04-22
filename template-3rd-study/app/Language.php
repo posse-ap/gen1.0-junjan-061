@@ -8,6 +8,7 @@ class Language extends Model
 {
 
     protected $table = 'Language';
+    protected $fillable = ['language'];
 
     public function Language()
     {

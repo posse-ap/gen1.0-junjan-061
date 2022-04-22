@@ -231,6 +231,7 @@ class CrazyController extends Controller
 
     public function add(Request $request)
     {
+        ini_set('display_errors',1);
         // dd(Auth::user()->id);
         // テーブルを学習コンテンツと学習言語に分ける
         // -migrationとseederを分ける
