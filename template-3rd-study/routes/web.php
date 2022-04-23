@@ -30,6 +30,7 @@ Route::post("webapp/admin/{content_id}/destroy", "CrazyController@destroy_conten
 Route::post("webapp/admin/store_language", "CrazyController@store_language")->name('admin.store_language');
 Route::post("webapp/admin/{language_id}/update_language", "CrazyController@update_language")->name('admin.update_language');
 Route::post("webapp/admin/{language_id}/destroy_language", "CrazyController@destroy_language")->name('admin.destroy_language');
+
 Route::post("webapp/add", "CrazyController@add")->name('add');
 
 // Auth::routes();

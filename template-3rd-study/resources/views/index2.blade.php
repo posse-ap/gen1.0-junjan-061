@@ -98,13 +98,15 @@
 
     <!-- modal main -->
     <div class="modal fade" id="modalPost" tab-index="-1" aria-hidden="true">
+        <input type="checkbox" id="checkbox1" value="1" name='languages[]'>
+        <input type="checkbox" id="checkbox2" value="2" name='languages[]'>
         <div class="modal-dialog">
             <div class="modal-content">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
                 <div class="modal-container">
-                    <form action="{{ route('add') }}" method="POST">
+                    {{-- <form action="{{ route('add') }}" method="POST"> --}}
                         @csrf
                         <div class="form-group d-lg-flex justify-content-between">
                             <div class="modal-left-parts">
@@ -144,11 +146,7 @@
 
                                 <section class="modal-language-pc-part d-none d-lg-block pt-3">
                                     <p class="font-weight-bold modal-title">学習言語 (複数選択可)</p>
-                                    @foreach ($languages as $language)
-                                        <input id="language{{ $language->id }}" type="checkbox" name="language_id[]"
-                                            value="{{ $language->id }}">
-                                        <label for="language{{ $language->id }}">{{ $language->language }}</label>
-                                    @endforeach
+                                
 
                                 </section>
 
@@ -202,10 +200,9 @@
                                 </div>
                             </div>
                         </div>
-                        <button type="button" class="post-btn d-block mx-auto mt-3 mb-4" id="to-modalLoading"
-                            data-toggle="modal" data-target="#modalLoading">記録・投稿</button>
+                        <button type="button" class="post-btn d-block mx-auto mt-3 mb-4" id="to-modalLoading">記録・投稿</button>
                         {{-- <button type="button" class="post-btn d-block mx-auto mt-3 mb-4" id="to-modalLoading">記録・投稿</button> --}}
-                    </form>
+                    {{-- </form> --}}
                 </div>
             </div>
         </div>
@@ -302,13 +299,7 @@
     <!-- modal error -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src = "https://code.jquery.com/jquery-3.5.0.min.js"
-        integrity = "sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ="
-        crossorigin = "anonymous" >
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"
-        integrity="sha512-JZSo0h5TONFYmyLMqp8k4oPhuo6yNk9mHM+FY50aBjpypfofqtEWsAgRDQm94ImLCzSaHeqNvYuD9382CEn2zw=="
-        crossorigin="anonymous"></script>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
     </script>
@@ -733,20 +724,20 @@
     });
 
     // to-fLoadingと言うidをもつDOMを取得する
-    const toModalLoading = document.getElementById('to-modalLoading');
+    // const toModalLoading = document.getElementById('to-modalLoading');
 
     // toModalLoadingがclickイベントを拾えるようにする
-    toModalLoading.addEventListener('click', () => {
-        // 投稿モーダルを非表示にし、ローディングモーダルを表示する
-        // これも関数に切り出しても良いかもね
-        $('#modalPost').modal('hide');
-        $('#modalLoading').modal('show');
+    // toModalLoading.addEventListener('click', () => {
+    //     // 投稿モーダルを非表示にし、ローディングモーダルを表示する
+    //     // これも関数に切り出しても良いかもね
+    //     $('#modalPost').modal('hide');
+    //     $('#modalLoading').modal('show');
 
-        // 2秒後にtoModalSuccessを呼び出す
-        setTimeout(function() {
-            toModalSuccess();
-        }, 2000)
-    })
+    //     // 2秒後にtoModalSuccessを呼び出す
+    //     setTimeout(function() {
+    //         toModalSuccess();
+    //     }, 2000)
+    // })
 
     // ローディングモーダルを非表示、successモーダルを表示
     function toModalSuccess() {
