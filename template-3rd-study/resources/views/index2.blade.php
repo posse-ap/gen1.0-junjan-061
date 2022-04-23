@@ -16,7 +16,6 @@
         <div class="d-lg-flex header-container mx-auto">
             <div class="d-flex">
                 <h1>
-                    <img src="./img/header-logo.png" class="header-img pr-3" alt="POSSE">
                 </h1>
                 <p class="header-text my-auto">4th week</p>
             </div>
@@ -98,8 +97,15 @@
 
     <!-- modal main -->
     <div class="modal fade" id="modalPost" tab-index="-1" aria-hidden="true">
-        <input type="checkbox" id="checkbox1" value="1" name='languages[]'>
-        <input type="checkbox" id="checkbox2" value="2" name='languages[]'>
+        <input id="language1" type="checkbox" value="1" name='languages[]'>
+        <input id="language2" type="checkbox" value="2" name='languages[]'>
+        <input id="language3" type="checkbox" value="3" name='languages[]'>
+        <input id="language4" type="checkbox" value="4" name='languages[]'>
+        <input id="language5" type="checkbox" value="5" name='languages[]'>
+        <input id="content1" type="checkbox" value="1" name='contents[]'>
+        <input id="content2" type="checkbox" value="2" name='contents[]'>
+        <input id="content3" type="checkbox" value="3" name='contents[]'>
+
         <div class="modal-dialog">
             <div class="modal-content">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -188,7 +194,7 @@
                             <div class="modal-right-parts pt-3 pt-lg-0">
                                 <section class="modal-time-part">
                                     <p class="font-weight-bold modal-title">学習時間</p>
-                                    <input type="text" name="hour">
+                                    <input id="hour" type="text" name="hour">
                                 </section>
                                 <section class="modal-twitter-part pt-3">
                                     <p class="font-weight-bold modal-title">Twitter用コメント</p>
@@ -307,11 +313,10 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript" src="./js/calendar/index.js"></script>
-    <script type="text/javascript" src="./js/chart/index.js"></script>
-    <script type="text/javascript" src="./js/displayThisMonth/index.js"></script>
-    <script type="text/javascript" src="./js/modal/index.js"></script>
-    <script type="text/javascript" src="./js/utils/index.js"></script>
+    <!-- <script type="text/javascript" src="./js/calendar/index.js"></script> -->
+    <!-- <script type="text/javascript" src="./js/displayThisMonth/index.js"></script> -->
+    <!-- <script type="text/javascript" src="./js/modal/index.js"></script> -->
+    <!-- <script type="text/javascript" src="./js/utils/index.js"></script> -->
     <script src="{{ asset('assets/js/main.js') }}"></script>
 </body>
 
@@ -490,7 +495,7 @@
 
     // resize時に、チャートを作り直し、windowサイズに合わせたチャートをレンダリングする
     // drawChartが発火しすぎないようにthrottoleで0.25秒間の猶予を設けてる
-    window.addEventListener('resize', $.throttle(250, drawChart))
+    // window.addEventListener('resize', $.throttle(250, drawChart))
 
     // 当日の年月日を取得する
     const calendarToday = new Date();
@@ -504,7 +509,7 @@
         return `${year}年${String(month + 1).padStart(2, '0')}月${date}日`;
     }
 
-    document.getElementById('studyDate').value = studyDateText()
+    // document.getElementById('studyDate').value = studyDateText()
 
     // 先月の日付のうち、今月カレンダーに含まれる(表示はしない)日付配列を取得する
     function getPrevMonth() {
@@ -804,7 +809,7 @@
     }
 
     // ブラウザサイズが変更されると、0.25秒の猶予を持って処理を走らせる
-    window.addEventListener('resize', $.throttle(250, function() {
-        changeWhiteSpace('.item', '.item-list')
-    }))
+    // window.addEventListener('resize', $.throttle(250, function() {
+    //     changeWhiteSpace('.item', '.item-list')
+    // }))
 </script>
