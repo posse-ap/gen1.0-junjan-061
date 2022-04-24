@@ -231,21 +231,16 @@ class CrazyController extends Controller
 
     public function add(Request $request)
     {
-        $hoge = "";
-        $languages = $request->languages;
-        return $languages[0];
-        foreach($languages as $language){
-            // $language_post = Language_Hour::create([
-                // 'study_hours_post_id' => $study_hours_post->id,
-                // 'language_id' => $language,
-                // 'hour' => $study_hours_post->total_hour / count($languages),
-            // ]);
-            $hoge = $language;
-        }
-        // throw new Exception('ゼロによる除算。');
-        // trigger_error('hoge');
-        return $hoge;
-        ini_set('display_errors',1);
+        // $languages = $request->languages;
+        // foreach($languages as $language){
+        //     $language_post = Language_Hour::create([
+        //         'study_hours_post_id' => 999,
+        //         'language_id' => $language,
+        //         'date' => $request->date,
+        //         'hour' => 10,
+        //     ]);
+        // }
+
         // dd(Auth::user()->id);
         // テーブルを学習コンテンツと学習言語に分ける
         // -migrationとseederを分ける
